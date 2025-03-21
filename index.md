@@ -22,8 +22,12 @@
 ### **Education**    
   + 2012-2017, 博士，仪器科学与技术，中国科学技术大学  
   + 2015-2016, 访问学者，生物医学工程系，美国俄亥俄州立大学  
-  + 2008-2012, 学士，仪器科学与技术，中国科学技术大学   
-
+  + 2008-2012, 学士，仪器科学与技术，中国科学技术大学    
+    
+### **Working Experience**    
+  + 2018.7-now, 战略技术合作经理、专家、总监，海康威视研究院  
+  + 2017.7-2018.6, 高级算法工程师（CV、SLAM），海康威视研究院    
+    
 ### **Projects**  
 1、主持课题：中国科协，科技智库青年人才计划，2024.8-2025.1，3万元，结项    
 2、参与课题：杭州市重点科研项目-面向制造业的多模态大模型关键技术研发和应用，课题骨干（排名第2），2024.1-2025.12，在研    
@@ -126,7 +130,7 @@
 11. Qu Y, **Ren W**, Liu S, et al. Polarized hyperspectral imaging system for in vivo detection of vulvar lichen sclerosis[C]//SPIE BiOS. International Society for Optics and Photonics, 2016   
 12. Zhang Z, **Ren W**, Yu Z, et al. Image-guided plasma therapy of cutaneous wound[C]//SPIE BiOS. International Society for Optics and Photonics, 2014   
 
-### **Soccer Career**
+### **Football Career**
 #### *Team Honors*
 2010：中国科大五人制-亚军，冠军杯-季军，冠军联赛-冠军        
 2011：中国科大冠军联赛-冠军    
