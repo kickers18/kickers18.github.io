@@ -106,7 +106,7 @@
 ### **Standards**
 1. IEEE3161-2022 国际标准 IEEE Standard for Digital Retina Systems
 2. IEEE3161.9-2023 国际标准 IEEE Standard for Protocols and Interfaces of Digital Retina Systems
-3. 国标《人工智能 音视频及图像分析算法接口》（批准中）
+3. GB/T 46700-2025 国标《人工智能 音视频及图像分析算法接口》
 4. 国标《信息技术 神经网络表示与模型压缩 第2部分：大规模预训练模型》（批准中）
 5. GB/T 45225-2025 国标《人工智能 深度学习算法评估》
 6. GB/T 37036.3-2019 国标《信息技术 移动设备生物特征识别 第3部分:人脸》
