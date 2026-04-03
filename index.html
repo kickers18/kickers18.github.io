@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>任文奇 - 海康威视研究院</title>
+    <meta name="description" content="任文奇 - 海康威视研究院战略合作总监，专注于人工智能、物联网与大数据研究">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="任文奇 - 海康威视研究院">
+    <meta property="og:description" content="杭州市C类高层次人才，CCF高级会员，专注于人工智能、物联网与大数据研究">
+    <meta property="og:type" content="profile">
+    <meta property="og:locale" content="zh_CN">
+    
+    <!-- 字体：使用系统字体栈，避免外部依赖 -->
+    <style>
+        /* ==================== 全局变量 ==================== */
+        :root {
+            --primary: #1a365d;
+            --primary-light: #2c5282;
+            --accent: #3182ce;
+            --accent-light: #63b3ed;
+            --gold: #d69e2e;
+            --bg-body: #f7fafc;
+            --bg-card: #ffffff;
+            --text-main: #1a202c;
+            --text-sub: #4a5568;
+            --text-light: #718096;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            --radius: 12px;
+        }
+
+        /* ==================== 基础样式 ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+        ul { list-style: none; }
+
+        /* ==================== 导航栏 ==================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-sub);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-main);
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+
+        /* 移动端菜单 */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-md);
+            z-index: 999;
+            padding: 1rem 2rem;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--border);
+            font-weight: 500;
+            color: var(--text-sub);
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        /* ==================== Hero 区域 ==================== */
+        .hero {
+            margin-top: 50px;
+            min-height: 14vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            padding: 2.5rem 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.3;
+            transform: rotate(15deg);
+            pointer-events: none;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            letter-spacing: 0;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            font-weight: 300;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            color: var(--accent-light);
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .tag {
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .hero-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .hero-contact div {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-image-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 5px solid rgba(255,255,255,0.2);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            background-color: #fff;
+        }
+
+        /* ==================== 通用布局 ==================== */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        /* ==================== 关于我 ==================== */
+        .profile-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            border-left: 5px solid var(--accent);
+        }
+
+        .profile-text {
+            font-size: 1rem;
+            color: var(--text-sub);
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .profile-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .highlight-item {
+            background: #ebf8ff;
+            color: var(--primary-light);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* ==================== 教育与工作经历 - 横向并排 ==================== */
+        .exp-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .exp-column {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+        }
+
+        .exp-column h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .exp-item {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 1.2rem;
+            border-left: 2px solid var(--border);
+        }
+
+        .exp-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 0.3rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .exp-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .exp-date {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .exp-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.2rem;
+        }
+
+        .exp-desc {
+            color: var(--text-sub);
+            font-size: 0.85rem;
+        }
+
+        /* ==================== 项目卡片 ==================== */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .project-status {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .status-ongoing { background: #fefcbf; color: #b7791f; }
+        .status-completed { background: #c6f6d5; color: #2f855a; }
+
+        .card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-bottom: 0.4rem;
+        }
+
+        .card-meta {
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* ==================== 荣誉与学术服务 ==================== */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .award-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 1rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .award-icon {
+            font-size: 1.5rem;
+            background: #fffaf0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* ==================== 学术成果 ==================== */
+        .pub-section {
+            margin-bottom: 2rem;
+        }
+
+        .pub-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .pub-header h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pub-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            counter-reset: pub-counter;
+        }
+
+        .pub-item {
+            background: var(--bg-card);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .pub-item:hover {
+            border-left-color: var(--accent);
+            box-shadow: var(--shadow-md);
+        }
+
+        .pub-item::before {
+            counter-increment: pub-counter;
+            content: counter(pub-counter) "、";
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .pub-title {
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
+            display: inline;
+        }
+
+        .pub-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .pub-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            background: #edf2f7;
+            color: var(--text-sub);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            margin-left: 0.3rem;
+            vertical-align: middle;
+        }
+
+        .pub-item.hidden-item {
+            display: none;
+        }
+
+        .pub-item.hidden-item.show {
+            display: block;
+        }
+        
+        /* 专利两列布局 */
+        .patent-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+            counter-reset: pub-counter;
+        }
+        
+        .patent-grid .pub-item {
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .patent-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .expand-btn {
+            display: block;
+            width: 100%;
+            padding: 0.7rem;
+            background: transparent;
+            border: 1px dashed var(--border);
+            color: var(--accent);
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .expand-btn:hover {
+            background: #ebf8ff;
+            border-color: var(--accent);
+        }
+
+        /* ==================== 足球生涯 ==================== */
+        .football-section {
+            background: 
+                linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px),
+                linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+                linear-gradient(135deg, #2d5a27 0%, #3d7a35 50%, #2d5a27 100%);
+            background-size: 80px 80px, 80px 80px, 100% 100%;
+            color: white;
+            padding: 2rem 2rem;
+            border-radius: 20px;
+            margin-top: 1rem;
+            border: 4px solid rgba(255,255,255,0.3);
+            box-shadow: inset 0 0 60px rgba(0,0,0,0.3), 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .football-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            border: 3px solid rgba(255,255,255,0.25);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .football-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            pointer-events: none;
+        }
+
+        .football-section .section-title {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .football-section .section-title::after {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .football-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .football-card {
+            background: rgba(255,255,255,0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .football-card h4 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .football-list {
+            list-style: none;
+        }
+
+        .football-list li {
+            padding: 0.4rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.85);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .football-list li span.highlight {
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        /* ==================== 页脚 ==================== */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* ==================== 响应式设计 ==================== */
+        @media (max-width: 900px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-content h1 { font-size: 1.8rem; }
+            .hero-tags, .hero-contact { justify-content: center; align-items: center; }
+            .hero-image { max-width: 280px; }
+            
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .football-grid { grid-template-columns: 1fr; }
+            
+            .exp-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ==================== 打印样式 ==================== */
+        @media print {
+            .navbar, .mobile-menu-btn, .mobile-menu { display: none !important; }
+            .hero { margin-top: 0; page-break-inside: avoid; }
+            .container { padding: 1.5rem 1rem; }
+            .card, .pub-item, .award-item { break-inside: avoid; }
+            .football-section { background: #f0f0f0 !important; color: #333 !important; }
+            .football-section .section-title { color: #333 !important; }
+            .football-card { background: #fff !important; border: 1px solid #ddd; }
+            .football-list li { color: #333 !important; }
+            a { text-decoration: none; color: #333; }
+            .expand-btn { display: none; }
+            .pub-item.hidden-item { display: block !important; }
+        }
+        .pub-title a {
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--accent);
+            transition: all 0.2s;
+        }
+        .pub-title a:hover {
+            color: var(--accent);
+            border-bottom-style: solid;
+        }
+        
+        /* 科研项目折叠样式 */
+        .hidden-project {
+            display: none;
+        }
+        .hidden-project.show {
+            display: block;
+        }
+        #project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        #project-grid .card {
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Ren Wenqi</a>
+            <div class="nav-links">
+                <a href="#profile">关于</a>
+                <a href="#experience">经历</a>
+                <a href="#projects">项目</a>
+                <a href="#awards">奖项</a>
+                <a href="#publications">学术成果</a>
+                <a href="#service">服务</a>
+                <a href="#football">足球</a>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="菜单">☰</button>
+        </div>
+    </nav>
+
+    <!-- 移动端菜单 -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#profile" onclick="toggleMobileMenu()">关于</a>
+        <a href="#experience" onclick="toggleMobileMenu()">经历</a>
+        <a href="#projects" onclick="toggleMobileMenu()">项目</a>
+        <a href="#awards" onclick="toggleMobileMenu()">奖项</a>
+        <a href="#publications" onclick="toggleMobileMenu()">学术成果</a>
+        <a href="#service" onclick="toggleMobileMenu()">服务</a>
+        <a href="#football" onclick="toggleMobileMenu()">足球</a>
+    </div>
+
+    <!-- Hero 区域 -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>任文奇</h1>
+                <p class="hero-subtitle">海康威视研究院 · 战略合作总监 (副研究员/高级工程师)</p>
+                
+                <div class="hero-tags">
+                    <span class="tag">🤖 人工智能</span>
+                    <span class="tag">🌐 物联网</span>
+                    <span class="tag">📊 大数据</span>
+                    <span class="tag">📋 标准化</span>
+                </div>
+
+                <div class="hero-contact">
+                    <div>📧 renwenqi@hikvision.com</div>
+                    <div>📍 杭州市滨江区阡陌路555号</div>
+                    <div>🎓 中国科大博士 / 浙江大学博士后</div>
+                </div>
+            </div>
+            
+            <div class="hero-image-wrapper">
+                <img src="./my_photo.jpg" alt="任文奇" class="hero-image" loading="lazy" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section id="profile" class="container">
+        <h2 class="section-title">简介</h2>
+        <article class="profile-card">
+            <p class="profile-text">
+                杭州市C类高层次人才，中国计算机学会高级会员，入选杭州市西湖明珠工程特支计划（青年，2025）、中国科协科技智库青年人才计划（2024）、中国电子学会青年科技人才培育工程工程师专项（2025），兼任浙江省/杭州市科技专家库成员、浙江大学"启真探业"企业导师、中国科大浙江校友会副秘书长等职。主要从事人工智能、物联网、大数据领域的技术和标准化研究，熟悉大模型、智能物联、视频智能分析等关键技术，负责海康威视研究院的校企合作、科技项目、开源开放等事务，主持海康威视-CCF斑头雁联合基金、大模型网信备案、中国信通院大模型评测等工作，具备丰富的产业界、学术界和政府关系资源。本人曾在国际期刊和学术会议上发表论文20余篇，参与起草国内外标准24项（已发布），获授权发明专利18项，作为核心成员参与科技部2030新一代人工智能重大专项、浙江省重点研发计划、杭州市重点科研计划等多个重大科技项目，曾获中国电子学会科技进步一等奖（2022）、信标委人工智能分委会先进个人（2023）等荣誉，多次获评海康威视先进科技工作者（2018/2019/2020/2022）。
+            </p>
+            <div class="profile-highlights">
+                <span class="highlight-item">🎯 杭州市C类人才</span>
+                <span class="highlight-item">🏆 CCF高级会员</span>
+                <span class="highlight-item">🎓 西湖明珠工程入选者</span>
+            </div>
+        </article>
+    </section>
+
+    <!-- 教育与工作经历 - 横向并排 -->
+    <section id="experience" class="container">
+        <h2 class="section-title">教育与工作经历</h2>
+        <div class="exp-grid">
+            <!-- 工作经历 -->
+            <div class="exp-column">
+                <h3>💼 工作经历</h3>
+                <div class="exp-item">
+                    <div class="exp-date">2018.7 - 至今</div>
+                    <div class="exp-title">战略合作总监 / 专家</div>
+                    <div class="exp-desc">海康威视研究院 - 负责标准化、校企合作、科技项目、开源开放</div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-date">2021.5 - 2024.3</div>
+                    <div class="exp-title">联合培养博士后</div>
+                    <div class="exp-desc">海康威视 & 浙江大学 (导师：<a href="https://person.zju.edu.cn/yzhuang" style="color: blue; text-decoration: underline" target="_blank" rel="noopener">庄越挺</a>教授)</div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-date">2017.7 - 2018.6</div>
+                    <div class="exp-title">高级算法工程师</div>
+                    <div class="exp-desc">海康威视研究院 (CV、SLAM方向)</div>
+                </div>
+            </div>
+            <!-- 教育经历 -->
+            <div class="exp-column">
+                <h3>🎓 教育经历</h3>
+                <div class="exp-item">
+                    <div class="exp-date">2012.9 - 2017.6</div>
+                    <div class="exp-title">博士 · 仪器科学与技术</div>
+                    <div class="exp-desc">中国科学技术大学</div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-date">2015.8 - 2016.5</div>
+                    <div class="exp-title">访问学者</div>
+                    <div class="exp-desc">美国俄亥俄州立大学 (OSU)</div>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-date">2008.9 - 2012.6</div>
+                    <div class="exp-title">学士 · 仪器科学与技术</div>
+                    <div class="exp-desc">中国科学技术大学</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 科研项目 -->
+    <section id="projects" class="container">
+        <h2 class="section-title">科研项目</h2>
+        <div class="grid-2" id="project-grid">
+            <article class="card">
+                <span class="project-status status-ongoing">在研</span>
+                <h3>杭州市西湖明珠工程特殊人才支持计划（青年）</h3>
+                <p>2026.1 - 2028.12</p>
+                <p><strong>角色：</strong>主持课题</p>
+                <div class="card-meta">经费：100万元</div>
+            </article>
+            <article class="card">
+                <span class="project-status status-completed">结项(优秀)</span>
+                <h3>中国科协科技智库青年人才计划</h3>
+                <p>2024.8 - 2025.1</p>
+                <p><strong>角色：</strong>主持课题</p>
+                <div class="card-meta">经费：3万元</div>
+            </article>
+            <article class="card">
+                <span class="project-status status-completed">结项</span>
+                <h3>博士后课题-面向新一代人工智能的开源开放和标准化研究</h3>
+                <p>2021.5 - 2024.3</p>
+                <p><strong>角色：</strong>主持课题</p>
+                <div class="card-meta">海康威视&浙江大学</div>
+            </article>
+            <article class="card">
+                <span class="project-status status-ongoing">在研</span>
+                <h3>面向制造业的多模态大模型关键技术研发和应用</h3>
+                <p>杭州市重点科研项目 (2024.1 - 2025.12)</p>
+                <p><strong>角色：</strong>课题骨干 (排名第2)</p>
+            </article>
+            <article class="card">
+                <span class="project-status status-completed">结项</span>
+                <h3>智能安防典型场景解决方案研究及应用示范</h3>
+                <p>浙江省重点研发计划 2019C01007 (2018.7 - 2021.3)</p>
+                <p><strong>角色：</strong>课题骨干 (排名第3)</p>
+                <div class="card-meta">总经费：2500万 (支持300万)</div>
+            </article>
+            <article class="card">
+                <span class="project-status status-ongoing">在研</span>
+                <h3>AI大模型智能分析技术高价值专利培育项目</h3>
+                <p>杭州市市场监管局 (2025.7 - 2027.7)</p>
+                <p><strong>角色：</strong>课题骨干 (排名2)</p>
+                <div class="card-meta">总经费：50万</div>
+            </article>
+            <article class="card hidden-project">
+                <span class="project-status status-ongoing">在研</span>
+                <h3>三维场景构建、理解与交互大模型研究及应用</h3>
+                <p>杭州市重点科研项目 (2025.1 - 2026.12)</p>
+                <p><strong>角色：</strong>课题骨干 (排名第5)</p>
+            </article>
+            <article class="card hidden-project">
+                <span class="project-status status-ongoing">在研</span>
+                <h3>复杂视频监控场景中人群异常行为分析</h3>
+                <p>国家自然科学基金 U22B2053 (2023 - 2026)</p>
+                <p><strong>角色：</strong>课题骨干</p>
+                <div class="card-meta">经费：253万元</div>
+            </article>
+            <article class="card hidden-project">
+                <span class="project-status status-completed">结项</span>
+                <h3>视频感知人工智能开放创新平台建设及应用推广</h3>
+                <p>科技部2030重大专项 2020AAA0104004 (2020.7 - 2023.6)</p>
+                <p><strong>角色：</strong>课题骨干</p>
+                <div class="card-meta">总经费：1272万 (支持272万)</div>
+            </article>
+            <article class="card hidden-project">
+                <span class="project-status status-completed">结项</span>
+                <h3>亚运智能安保风险监测预警关键技术、装备研发及应用示范</h3>
+                <p>浙江省重点研发计划 2021C03155 (2021.1 - 2023.6)</p>
+                <p><strong>角色：</strong>课题骨干</p>
+                <div class="card-meta">总经费：650万 (支持250万)</div>
+            </article>
+            <article class="card hidden-project">
+                <span class="project-status status-completed">结项</span>
+                <h3>工业互联网企业内5G网络化改造及推广服务平台</h3>
+                <p>工信部制造业高质量发展专项 TC190A3X9-1 (2019.03 - 2021.12)</p>
+                <p><strong>角色：</strong>课题骨干</p>
+                <div class="card-meta">经费：684万</div>
+            </article>
+            <article class="card hidden-project">
+                <span class="project-status status-completed">结项</span>
+                <h3>视频感知国家新一代人工智能开放创新平台建设 (2020年度)</h3>
+                <p>浙江省科技厅 2020ZY1009 (2020.1 - 2020.12)</p>
+                <p><strong>角色：</strong>课题骨干</p>
+                <div class="card-meta">总经费：1650万 (支持650万)</div>
+            </article>
+            <article class="card hidden-project">
+                <span class="project-status status-completed">结项</span>
+                <h3>视频感知国家新一代人工智能开放创新平台建设 (2021年度)</h3>
+                <p>浙江省科技厅 2021ZY1003 (2021.1 - 2021.12)</p>
+                <p><strong>角色：</strong>课题骨干</p>
+                <div class="card-meta">总经费：1000万 (支持350万)</div>
+            </article>
+        </div>
+        <button class="expand-btn" onclick="toggleProjects()" id="project-expand-btn">展开更多项目 (7项)</button>
+    </section>
+
+    <!-- 荣誉奖励 -->
+    <section id="awards" class="container">
+        <h2 class="section-title">荣誉奖励</h2>
+        <div class="grid-3">
+            <article class="award-item">
+                <div class="award-icon">🥇</div>
+                <div>
+                    <h4>科技进步一等奖</h4>
+                    <p style="font-size:0.85rem; color:var(--text-light)">中国电子学会 (2022)</p>
+                    <p style="font-size:0.8rem; margin-top:0.2rem">特征流与模型流协同的大规模视频智能处理技术</p>
+                </div>
+            </article>
+            <article class="award-item">
+                <div class="award-icon">🥇</div>
+                <div>
+                    <h4>科技进步一等奖</h4>
+                    <p style="font-size:0.85rem; color:var(--text-light)">广东省计算机学会 (2025)</p>
+                    <p style="font-size:0.8rem; margin-top:0.2rem">面向个性化教育的中小学智慧校园关键技术研发 (5/10)</p>
+                </div>
+            </article>
+            <article class="award-item">
+                <div class="award-icon">🏅</div>
+                <div>
+                    <h4>国际标准突出贡献奖</h4>
+                    <p style="font-size:0.85rem; color:var(--text-light)">IEEE Standards Association (2022/2023)</p>
+                </div>
+            </article>
+            <article class="award-item">
+                <div class="award-icon">🏆</div>
+                <div>
+                    <h4>Best Industrial Paper Award</h4>
+                    <p style="font-size:0.85rem; color:var(--text-light)">ICDAR 2021</p>
+                </div>
+            </article>
+            <article class="award-item">
+                <div class="award-icon">⭐</div>
+                <div>
+                    <h4>2023年度优秀个人</h4>
+                    <p style="font-size:0.85rem; color:var(--text-light)">全国信标委人工智能分委会</p>
+                </div>
+            </article>
+            <article class="award-item">
+                <div class="award-icon">🌟</div>
+                <div>
+                    <h4>2022年度突出贡献个人</h4>
+                    <p style="font-size:0.85rem; color:var(--text-light)">中国人工智能产业联盟 (AIIA)</p>
+                </div>
+            </article>
+            <article class="award-item">
+                <div class="award-icon">👨‍💻</div>
+                <div>
+                    <h4>先进科技工作者</h4>
+                    <p style="font-size:0.85rem; color:var(--text-light)">海康威视 (2018, 2019, 2020, 2022)</p>
+                </div>
+            </article>
+            <article class="award-item">
+                <div class="award-icon">🎓</div>
+                <div>
+                    <h4>研究生国家奖学金</h4>
+                    <p style="font-size:0.85rem; color:var(--text-light)">中国科学技术大学</p>
+                </div>
+            </article>
+            <article class="award-item">
+                <div class="award-icon">💰</div>
+                <div>
+                    <h4>光华奖学金</h4>
+                    <p style="font-size:0.85rem; color:var(--text-light)">中国科学技术大学 (2015)</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 学术成果 -->
+    <section id="publications" class="container">
+        <h2 class="section-title">论文/专利/标准</h2>
+        
+        <!-- 期刊论文 -->
+        <div class="pub-section">
+            <div class="pub-header">
+                <h3>📄 期刊论文</h3>
+            </div>
+            <div class="pub-list" id="journal-list">
+                <article class="pub-item">
+                    <div class="pub-title"><a href="https://jgcm.ac.cn/cn/article/id/71eb322f-c3ad-493a-bfa5-5218fe70bca5" target="_blank" rel="noopener">智能物联感知关键技术及应用</a> <span class="pub-badge">通信作者</span></div>
+                    <div class="pub-meta">智能感知工程, 2024, 1(1): 51-59.(邀稿，年度优秀论文奖)</div>
+                    <div class="pub-meta" style="margin-top:0.2rem">浦世亮，<b>任文奇（通信作者）</b>，朱江，陈方栋，钟凯伦</div>
+                </article>
+                <article class="pub-item">
+                    <div class="pub-title"><a href="https://doi.org/10.1016/j.optlastec.2026.114830" target="_blank" rel="noopener">Hardware-free low-frequency drift compensation method for interferometric fiber-optic vibration sensing</a></div>
+                    <div class="pub-meta">Optics & Laser Technology Vol. 197, May 2026</div>
+                    <div class="pub-meta" style="margin-top:0.2rem">Ke Ai, Cunzheng Fan, Shuolong Zhu, Bin Lu, <b>Wenqi Ren</b>, Junfeng Chen, Zhan Chen*, Hao Li, Zhijun Yan, Qizhen Sun*</div>
+                </article>
+                <article class="pub-item">
+                    <div class="pub-title"><a href="https://doi.org/10.29026/oes.2024.240016" target="_blank" rel="noopener">Genetic algorithm assisted meta-atom design for high-performance metasurface optics</a></div>
+                    <div class="pub-meta">Opto-Electron Sci 3, 240016, 2024</div>
+                    <div class="pub-meta" style="margin-top:0.2rem">Zhenjie Yu, Moxin Li, Zhenyu Xing, Hao Gao, Zeyang Liu, Shiliang Pu, Hui Mao, Hong Cai, Qiang Ma, <b>Wenqi Ren</b>, Jiang Zhu, Cheng Zhang</div>
+                </article>
+                <article class="pub-item">
+                    <div class="pub-title"><a href="https://doi.org/10.1115/1.4036335" target="_blank" rel="noopener">Development of a multimodal colposcopy for early screening of cervical intraepithelial neoplasia</a></div>
+                    <div class="pub-meta">Journal of Medical Devices, 2017, 11(3): 031005</div>
+                    <div class="pub-meta" style="margin-top:0.2rem"><b>Wenqi Ren</b>, Yingjie Qu, Jiaojiao Pei, Linlin Xiao, Shiwu Zhang</div>
+                </article>
+                <article class="pub-item">
+                    <div class="pub-title"><a href="https://doi.org/10.1117/1.JBO.20.12.121307" target="_blank" rel="noopener">Quasi-simultaneous multimodal imaging of cutaneous tissue oxygenation and perfusion</a></div>
+                    <div class="pub-meta">Journal of Biomedical Optics, 2015, 20(12): 121307</div>
+                    <div class="pub-meta" style="margin-top:0.2rem"><b>Wenqi Ren</b>, Qi Gan, Qiang Wu, Shiwu Zhang, Ronald X. Xu</div>
+                </article>
+                <article class="pub-item">
+                    <div class="pub-title"><a href="https://doi.org/10.1117/1.JBO.20.12.121308" target="_blank" rel="noopener">Microfabrication of polydimethylsiloxane phantoms to simulate tumor hypoxia and vascular anomaly</a></div>
+                    <div class="pub-meta">Journal of biomedical optics, 2015, 20(12): 121308</div>
+                    <div class="pub-meta" style="margin-top:0.2rem">Qiang Wu, <b>Wenqi Ren</b>, Zelin Yu, Erbao Dong, Shiwu Zhang, Ronald X. Xu</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://doi.org/10.1117/1.JBO.20.1.016016" target="_blank" rel="noopener">Multimodal imaging of cutaneous wound tissue</a></div>
+                    <div class="pub-meta">Journal of biomedical optics, 2015, 20(1): 016016</div>
+                    <div class="pub-meta" style="margin-top:0.2rem">Shiwu Zhang, Surya Gnyawali, Jiwei Huang, <b>Wenqi Ren</b>, Gayle Gordillo, Chandan K. Sen, Ronald X. Xu</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://doi.org/10.1007/s00170-012-4183-3" target="_blank" rel="noopener">Thermal error modeling and compensation of long-travel nanopositioning stage</a></div>
+                    <div class="pub-meta">The International Journal of Advanced Manufacturing Technology, 2013</div>
+                    <div class="pub-meta" style="margin-top:0.2rem">Jian Wang, Chuanrui Zhu, Minglun Feng, <b>Wenqi Ren</b></div>
+                </article>
+            </div>
+            <button class="expand-btn" onclick="togglePubSection('journal-list', this)">展开更多 ▼</button>
+        </div>
+
+        <!-- 会议论文 -->
+        <div class="pub-section">
+            <div class="pub-header">
+                <h3>🎤 会议论文</h3>
+            </div>
+            <div class="pub-list" id="conf-list">
+                <article class="pub-item">
+                    <div class="pub-title"><a href="https://arxiv.org/abs/2412.15601" target="_blank" rel="noopener">Gaze Label Alignment: Alleviating Domain Shift for Gaze Estimation</a> <span class="pub-badge">通信作者</span></div>
+                    <div class="pub-meta">AAAI 2025</div>
+                    <div class="pub-meta" style="margin-top:0.2rem">Guanzhong Zeng, Jingjing Wang, Zefu Xu, Pengwei Yin, <b>Wenqi Ren（通信作者）</b>, Di Xie, Jiang Zhu</div>
+                </article>
+                <article class="pub-item">
+                    <div class="pub-title">Semantic-Guided Global-Local Collaborative Prompt Learning for Few-Shot Class Incremental Learning</div>
+                    <div class="pub-meta">CVPR 2026</div>
+                    <div class="pub-meta" style="margin-top:0.2rem">Yongxin Yan, Weisen Chen, Xingye Chen, Yuanjie Shao, Zhengrong Zuo, Wenming Tan, <b>Wenqi Ren</b>, Changxin Gao, Nong Sang</div>
+                </article>
+                <article class="pub-item">
+                    <div class="pub-title"><a href="https://aclanthology.org/2024.acl-long.212/" target="_blank" rel="noopener">Insert or Attach: Taxonomy Completion via Box Embedding</a></div>
+                    <div class="pub-meta">ACL 2024</div>
+                    <div class="pub-meta" style="margin-top:0.2rem">Wei Xue, Yongliang Shen, <b>Wenqi Ren</b>, Jietian Guo, Shiliang Pu, Weiming Lu</div>
+                </article>
+                <article class="pub-item">
+                    <div class="pub-title"><a href="https://dl.acm.org/doi/10.1145/3637528.3671919" target="_blank" rel="noopener">SensitiveHUE: Multivariate Time Series Anomaly Detection by Enhancing the Sensitivity to Normal Patterns</a></div>
+                    <div class="pub-meta">KDD 2024</div>
+                    <div class="pub-meta" style="margin-top:0.2rem">Yuye Feng, Wei Zhang, Yao Fu, Weihao Jiang, Zhu Jiang, <b>Wenqi Ren</b></div>
+                </article>
+                <article class="pub-item">
+                    <div class="pub-title"><a href="https://aclanthology.org/2023.emnlp-main.145/" target="_blank" rel="noopener">MProto: Multi-Prototype Network with Denoised Optimal Transport for Distantly Supervised Named Entity Recognition</a></div>
+                    <div class="pub-meta">EMNLP 2023</div>
+                    <div class="pub-meta" style="margin-top:0.2rem">Shuhui Wu, Yongliang Shen, Zeqi Tan, <b>Wenqi Ren</b>, Jietian Guo, Shiliang Pu, Weiming Lu</div>
+                </article>
+                <article class="pub-item">
+                    <div class="pub-title"><a href="https://arxiv.org/abs/2102.11614" target="_blank" rel="noopener">Self-Supervised Noisy Label Learning for Source-Free Unsupervised Domain Adaptation</a></div>
+                    <div class="pub-meta">ArXiv:2102.11614</div>
+                    <div class="pub-meta" style="margin-top:0.2rem">Weijie Chen, Luojun Lin, Shicai Yang, Di Xie, Shiliang Pu, Yueting Zhuang, <b>Wenqi Ren</b></div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://link.springer.com/content/pdf/10.1007/978-3-030-86549-8_7" target="_blank" rel="noopener">LGPMA: Complicated Table Structure Recognition with Local and Global Pyramid Mask Alignment</a> <span class="pub-badge">最佳工业论文奖</span></div>
+                    <div class="pub-meta">ICDAR 2021</div>
+                    <div class="pub-meta" style="margin-top:0.2rem">Liang Qiao, Zaisheng Li, Zhanzhan Cheng, Peng Zhang, Shiliang Pu, Yi Niu, <b>Wenqi Ren</b>, Wenming Tan, Fei Wu</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://link.springer.com/chapter/10.1007/978-3-030-86549-8_19" target="_blank" rel="noopener">Reciprocal Feature Learning via Explicit and Implicit Tasks in Scene Text Recognition</a></div>
+                    <div class="pub-meta">ICDAR 2021</div>
+                    <div class="pub-meta" style="margin-top:0.2rem">Hui Jiang, Yunlu Xu, Zhanzhan Cheng, Shiliang Pu, Yi Niu, <b>Wenqi Ren</b>, Fei Wu, Wenming Tan</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/9701/97010E/In-vivo-detection-of-cervical-intraepithelial-neoplasia-by-multimodal-colposcopy/10.1117/12.2212194.full" target="_blank" rel="noopener">In vivo detection of cervical intraepithelial neoplasia by multimodal colposcopy</a></div>
+                    <div class="pub-meta">SPIE BiOS, 2016</div>
+                    <div class="pub-meta" style="margin-top:0.2rem"><b>Wenqi Ren</b>, Yingjie Qu, Jiaojiao Pei, Linlin Xiao, Shiwu Zhang, Shufang Chang, Zachary J. Smith, Ronald X. Xu</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/8937/893706/A-simultaneous-multimodal-imaging-system-for-tissue-functional-parameters/10.1117/12.2041008.full" target="_blank" rel="noopener">A simultaneous multimodal imaging system for tissue functional parameters</a></div>
+                    <div class="pub-meta">SPIE BiOS, 2014</div>
+                    <div class="pub-meta" style="margin-top:0.2rem"><b>Wenqi Ren</b>, Zhiwu Zhang, Qiang Wu, Shiwu Zhang, Ronald X. Xu</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/9698/1/Image-guided-cold-atmosphere-plasma-CAP-therapy-for-cutaneous-wound/10.1117/12.2212516.full" target="_blank" rel="noopener">Image-guided cold atmosphere plasma (CAP) therapy for cutaneous wound</a></div>
+                    <div class="pub-meta">SPIE BiOS, 2016</div>
+                    <div class="pub-meta" style="margin-top:0.2rem">Zelin Yu, <b>Wenqi Ren</b>, Qi Gan, Jiahong Li, XiangXiang Li, Shiwu Zhang, Fan Jin, Cheng Cheng, Yue Ting, Ronald X. Xu</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/9715/97150Q/Polarized-hyperspectral-imaging-system-for-in-vivo-detection-of-vulvar/10.1117/12.2213802.full" target="_blank" rel="noopener">Polarized hyperspectral imaging system for in vivo detection of vulvar lichen sclerosis</a></div>
+                    <div class="pub-meta">SPIE BiOS, 2016</div>
+                    <div class="pub-meta" style="margin-top:0.2rem">Yingjie Qu, <b>Wenqi Ren</b>, Songde Liu, Peng Liu, Lan Xie, Xiaoyuan Zhang, Shiwu Zhang, Shufang Chang, Ronald X. Xu</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://spie.org/Publications/Proceedings/Paper/10.1117/12.2041092" target="_blank" rel="noopener">Image-guided plasma therapy of cutaneous wound</a></div>
+                    <div class="pub-meta">SPIE BiOS, 2014</div>
+                    <div class="pub-meta" style="margin-top:0.2rem">Zhiwu Zhang, <b>Wenqi Ren</b>, Zelin Yu, Shiwu Zhang, Ting Yue, Ronald X. Xu</div>
+                </article>
+            </div>
+            <button class="expand-btn" onclick="togglePubSection('conf-list', this)">展开更多 ▼</button>
+        </div>
+
+        <!-- 专利 -->
+        <div class="pub-section">
+            <div class="pub-header">
+                <h3>💡 发明专利 (授权)</h3>
+            </div>
+            <div class="patent-grid" id="patent-list">
+                <article class="pub-item">
+                    <div class="pub-title">基于大语言模型的工具调用方法及装置 <span class="pub-badge">第一发明人</span></div>
+                    <div class="pub-meta">ZL202510582863.2</div>
+                </article>
+                <article class="pub-item">
+                    <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202511666307">一种大模型键值缓存量化方法、系统、设备及存储介质</a></div>
+                    <div class="pub-meta">ZL202511666307.X(排名2)</div>
+                </article>
+                <article class="pub-item">
+                    <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202410853898">车载相机标定方法、装置、电子设备及机器可读存储介质</a></div>
+                    <div class="pub-meta">ZL202410853898.0 (排名2)</div>
+                </article>
+                <article class="pub-item">
+                    <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202410848459">一种智能巡店方法、装置、存储介质和电子设备</a></div>
+                    <div class="pub-meta">ZL202410848459.0 (排名3)</div>
+                </article>
+                <article class="pub-item">
+                    <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202010857184">基于共识图表征推理的定位自然图像字幕生成方法和装置</a></div>
+                    <div class="pub-meta">ZL202010857184.9 (排名8)</div>
+                </article>
+                <article class="pub-item">
+                    <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202011278817">一种基于查询的自底向上视频定位方法和系统</a></div>
+                    <div class="pub-meta">ZL202011278817.7 (排名7)</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202411277658">一种模型训练方法、对象识别方法、装置及电子设备</a></div>
+                    <div class="pub-meta">ZL202411277658.7 (排名2)</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202411184316">一种数据增强模型的训练方法、数据增强方法、及装置</a></div>
+                    <div class="pub-meta">ZL202411184316.0 (排名2)</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202411276518">一种夜间可见光与热红外图像融合方法</a></div>
+                    <div class="pub-meta">ZL202411276518.8 (排名3)</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202411900422">一种液体识别方法、装置、存储介质和电子设备</a></div>
+                    <div class="pub-meta">ZL202411900422.4 (排名2)</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202210709171">任务处理方法、装置、电子设备及存储介质</a></div>
+                    <div class="pub-meta">ZL202210709171.6 (排名3)</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202510582392">一种多模态数据样本的生成方法及电子设备</a></div>
+                    <div class="pub-meta">ZL202510582392.5 (排名2)</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202411275283">一种基于主体目标判别的遮挡行人再识别方法</a></div>
+                    <div class="pub-meta">ZL202411275283.0 (排名3)</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202510578269">模型训练方法、法律问题分析方法及电子设备</a></div>
+                    <div class="pub-meta">ZL202510578269.6 (排名2)</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202210751469">一种网络模型的训练方法、装置及设备</a></div>
+                    <div class="pub-meta">ZL202210751469.3 (排名2)</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202210753273">一种网络模型的训练方法、装置及设备</a></div>
+                    <div class="pub-meta">ZL202210753273.8 (排名2)</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202210615980">神经网络模型裁剪方法、装置、电子设备及存储介质</a></div>
+                    <div class="pub-meta">ZL202210615980.0 (排名3)</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: CN118747905">适应于复杂视角和行人状态的行人属性识别方法</a></div>
+                    <div class="pub-meta">CN118747905A (排名6)</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: CN120633870">应用于边缘设备的推理加速方法、装置及电子设备</a></div>
+                    <div class="pub-meta">CN120633870A (排名5)</div>
+                </article>
+            </div>
+            <button class="expand-btn" onclick="togglePubSection('patent-list', this)">展开更多 ▼</button>
+        </div>
+
+        <!-- 标准 -->
+        <div class="pub-section">
+            <div class="pub-header">
+                <h3>📋 标准</h3>
+            </div>
+            <div class="pub-list" id="standard-list">
+                <article class="pub-item">
+                    <div class="pub-title"><a href="https://uip.cesa.cn/api/fileManage/notice/down?fidOrFilename=9877" target="_blank" rel="noopener">SJ/T 12107-2025</a> 《人工智能 面向计算机视觉的自主学习系统技术规范》 <span class="pub-badge">第一起草人</span></div>
+                </article>
+                <article class="pub-item">
+                    <div class="pub-title">CESA/T xxxxx-2026 《人工智能 视频图像内容保护系统技术规范》 <span class="pub-badge">第一起草人</span></div>
+                </article>
+                <article class="pub-item">
+                    <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10051673" target="_blank" rel="noopener">IEEE3161-2022</a> 国际标准 IEEE Standard for Digital Retina Systems</div>
+                </article>
+                <article class="pub-item">
+                    <div class="pub-title"><a href="https://ieeexplore.ieee.org/abstract/document/10419215" target="_blank" rel="noopener">IEEE3161.9-2023</a> 国际标准 IEEE Standard for Protocols and Interfaces of Digital Retina Systems</div>
+                </article>
+                <article class="pub-item">
+                    <div class="pub-title"><a href="https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=BD3445AD326E15A4B0DE92774826B52A" target="_blank" rel="noopener">GB/T 46700-2025</a> 国标《人工智能 音视频及图像分析算法接口》 <span class="pub-badge">第三起草人</span></div>
+                </article>
+                <article class="pub-item">
+                    <div class="pub-title">国标《信息技术 神经网络表示与模型压缩 第2部分：大规模预训练模型》(批准中)</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=A53A9ED19FC16A692D1B200E5AB0F407" target="_blank" rel="noopener">GB/T 45225-2025</a> 国标《人工智能 深度学习算法评估》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=433AF94FEE5D387E57CA08880B1B952F" target="_blank" rel="noopener">GB/T 37036.3-2019</a> 国标《信息技术 移动设备生物特征识别 第3部分:人脸》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://std.samr.gov.cn/gb/search/gbDetailed?id=EB58F4DA9097B2A2E05397BE0A0A7D33" target="_blank" rel="noopener">GB/T 41815.2-2022</a> 国标《信息技术 生物特征识别呈现攻击检测 第2部分：数据格式》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://std.samr.gov.cn/gb/search/gbDetailed?id=FC816D05000E62EBE05397BE0A0AD5FA" target="_blank" rel="noopener">GB/T 41815.3-2023</a> 国标《信息技术 生物特征识别呈现攻击检测 第3部分：测试与报告》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=195F522C14AD9A1A0094FF66D0B1EF1B" target="_blank" rel="noopener">GB/T 41867-2022</a> 国标《信息技术 人工智能 术语》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=C4B32C74292229C70F36F93E6C77AAEE" target="_blank" rel="noopener">GB/T 41864-2022</a> 国标《信息技术 计算机视觉 术语》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://uip.cesa.cn/api/fileManage/notice/down?fidOrFilename=9874" target="_blank" rel="noopener">SJ/T 12104-2025</a> 行业标准《人工智能 工业视觉模型训练推理平台技术规范》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://www.instrument.com.cn/download/shtml/1376320.shtml" target="_blank" rel="noopener">SJ/T 12254-2026</a> 行业标准《人工智能智能产品与服务 家用终端 智能性用户感知评价方法》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://www.instrument.com.cn/download/shtml/1376317.shtml" target="_blank" rel="noopener">SJ/T 12251.1-2026</a> 行业标准《人工智能关键技术 智能体 系统技术要求 第1部分：智能家居》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://std.samr.gov.cn/hb/search/stdHBDetailed?id=425776678D1EAC2FE06397BE0A0A4BB0" target="_blank" rel="noopener">YD/T 6520.1-2025</a> 行业标准 《大规模预训练模型技术和应用评估方法 第 1 部分：模型开发》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://std.samr.gov.cn/hb/search/stdHBDetailed?id=425776678D1FAC2FE06397BE0A0A4BB0" target="_blank" rel="noopener">YD/T 6520.2-2025</a> 行业标准《大规模预训练模型技术和应用评估方法 第 2 部分：模型能力》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://www.cesa.cn/opinionDetail?id=479" target="_blank" rel="noopener">T/CESA 1304.3-2025</a> 团标《人工智能 可信赖规范 第3部分：机器学习框架》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="http://www.njis.ac.cn/kyjz/show/277.html" target="_blank" rel="noopener">T/CESA 1304.4-2024</a> 团标《人工智能 可信赖规范 第4部分:机器学习模型》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://www.ttbz.org.cn/StandardManage/Detail/56990/" target="_blank" rel="noopener">T/CESA 9173</a>—2021 团标《信息技术应用创新 视频解析机技术规范》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://www.ttbz.org.cn/StandardManage/Detail/28148" target="_blank" rel="noopener">T/CESA 1040-2019</a> 团标《信息技术 人工智能 面向机器学习的数据标注规程》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title"><a href="https://www.ttbz.org.cn/StandardManage/Detail/69669/" target="_blank" rel="noopener">T/AI 116.1</a>—2021 团标《信息技术 数字视网膜系统 第1部分：系统结构和通信协议》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title">T/AI 116.2-2025 团标《信息技术 数字视网膜系统 第2部分：算法仓库》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title">T/AI 116.3—2024 团标《信息技术 数字视网膜系统 第3部分：端子系统》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title">T/AI 116.9—2025 团标《信息技术 数字视网膜系统 第9部分：存储系统》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title">T/AI 115.2-2024 团标《信息技术 神经网络模型表示与模型压缩 第2部分：大规模预训练模型》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title">白皮书：信标委《人工智能标准化白皮书（2021版）》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title">白皮书：信标委《2020年行为识别行业研究报告》</div>
+                </article>
+                <article class="pub-item hidden-item">
+                    <div class="pub-title">白皮书：中电标协-信创工委会《人工智能技术与产业白皮书（2022）》</div>
+                </article>
+            </div>
+            <button class="expand-btn" onclick="togglePubSection('standard-list', this)">展开更多 ▼</button>
+        </div>
+    </section>
+
+    <!-- 学术服务 -->
+    <section id="service" class="container">
+        <h2 class="section-title">学术服务</h2>
+        <div class="grid-3">
+            <article class="card" style="margin-bottom:0">
+                <h4 style="margin-bottom:0.5rem; color:var(--primary)">🏢 专家库/委员会</h4>
+                <ul style="font-size:0.9rem; color:var(--text-sub); line-height:1.8">
+                    <li>浙江省科技专家库，专家</li>
+                    <li>杭州市科技专家库，专家</li>
+                    <li>全国信标委人工智能分委会(TC28/SC42)，单位委员、长三角工作组副组长</li>
+                    <li>中国电科标准化技术委员会，委员</li>
+                    <li>中电标协人工智能专委会，委员</li>
+                    <li>CCF-开源发展技术委员会，执委</li>
+                    <li>浙江省人工智能专家服务团，专家</li>
+                    <li>教育部多媒体通信工程技术中心(宁波大学)专家委员会，委员</li>
+                </ul>
+            </article>
+            <article class="card" style="margin-bottom:0">
+                <h4 style="margin-bottom:0.5rem; color:var(--primary)">🎓 高校导师</h4>
+                <ul style="font-size:0.9rem; color:var(--text-sub); line-height:1.8">
+                    <li>浙江大学信电学院，校外合作导师</li>
+                    <li>浙江大学光华法学院，实务导师 (2021.9-2024.9)</li>
+                    <li>浙江大学"启真探业"企业导师</li>
+                </ul>
+            </article>
+            <article class="card" style="margin-bottom:0">
+                <h4 style="margin-bottom:0.5rem; color:var(--primary)">🏆 会议评审</h4>
+                <ul style="font-size:0.9rem; color:var(--text-sub); line-height:1.8">
+                    <li>AAAI 2026 Conference Program Committee Member</li>
+                    <li>中国人工智能学会-吴文俊人工智能科学技术奖，评审专家</li>
+                </ul>
+            </article>
+            <article class="card" style="margin-bottom:0">
+                <h4 style="margin-bottom:0.5rem; color:var(--primary)">🌐 行业/联盟</h4>
+                <ul style="font-size:0.9rem; color:var(--text-sub); line-height:1.8">
+                    <li>中国人工智能产业发展联盟(AIIA)基础平台工作组，专家</li>
+                    <li>中国科大浙江校友会，副秘书长</li>
+                </ul>
+            </article>
+            <article class="card" style="margin-bottom:0">
+                <h4 style="margin-bottom:0.5rem; color:var(--primary)">🎤 授课/演讲</h4>
+                <ul style="font-size:0.9rem; color:var(--text-sub); line-height:1.8">
+                    <li>浙江省物联网技术经纪人培训班，授课专家</li>
+                    <li>浙江省数字安防技术高级研修班，授课专家</li>
+                    <li>智能视觉产业发展大会，邀请报告 (2024.10)</li>
+                    <li>VALSE (视觉与学习青年学者研讨会)，企业演讲 (2021)</li>
+                    <li>人工智能课程国家级虚拟教研室教学研究论坛，邀请报告 (2022.10)</li>
+                    <li>中国人工智能产业联盟开发者大会，分论坛演讲 (2019.11，杭州)</li>
+                    <li>中国计算机视觉和模式识别大会，企业演讲 (2019.12，西安)</li>
+                    <li>中国人工智能计算大会（AICC），分论坛演讲 (2019.8，北京)</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <!-- 足球生涯 -->
+    <section class="container">
+        <div id="football" class="football-section">
+            <h2 class="section-title">⚽ 足球生涯</h2>
+            <div class="football-grid">
+                <article class="football-card">
+                    <h4>🏆 团队荣誉</h4>
+                    <ul class="football-list">
+                        <li><span>2026</span> <span class="highlight">第一届"野派加"五人制邀请赛冠军</span></li>
+                        <li><span>2026</span> <span class="highlight">G6贺岁杯冠军</span></li>
+                        <li><span>2025</span> <span class="highlight">驰拓贺岁杯冠军</span></li>
+                        <li><span>2025</span> <span class="highlight">余杭区未来杯冠军</span></li>
+                        <li><span>2025</span> <span class="highlight">滨青杯冠军</span></li>
+                        <li><span>2025</span> <span class="highlight">G6贺岁杯冠军</span></li>
+                        <li><span>2024</span> <span class="highlight">海康集团足协杯冠军</span></li>
+                        <li><span>2023</span> <span class="highlight">滨江区互联网小镇联赛冠军</span></li>
+                        <li><span>2023</span> <span class="highlight">G6贺岁杯冠军</span></li>
+                        <li><span>2022</span> <span class="highlight">G10校友联赛冠军</span></li>
+                        <li><span>2022</span> <span class="highlight">海康威视内部联赛冠军</span></li>
+                        <li><span>2022</span> <span class="highlight">滨江区五人制职工联赛冠军</span></li>
+                        <li><span>2021</span> <span class="highlight">海康集团联赛冠军</span></li>
+                        <li><span>2021</span> <span class="highlight">滨江区互联网小镇联赛冠军</span></li>
+                        <li><span>2020</span> <span class="highlight">G6校友联赛冠军</span></li>
+                        <li><span>2020</span> <span class="highlight">安徽高校浙江校友联赛冠军</span></li>
+                        <li><span>2019</span> <span class="highlight">G10校友联赛冠军</span></li>
+                        <li><span>2019</span> <span class="highlight">G10校友贺岁杯冠军</span></li>
+                        <li><span>2019</span> <span class="highlight">海康集团联赛冠军</span></li>
+                        <li><span>2018</span> <span class="highlight">安徽高校浙江校友联赛冠军</span></li>
+                        <li><span>2017</span> <span class="highlight">杭州市滨江区企业联赛冠军</span></li>
+                        <li><span>2016</span> <span class="highlight">北美华人八校赛冠军</span></li>
+                        <li><span>2016</span> <span class="highlight">中国科大八人制冠军</span></li>
+                        <li><span>2016</span> <span class="highlight">安徽省大学生联赛冠军</span></li>
+                        <li><span>2015</span> <span class="highlight">谁是球王五人制安徽赛区冠军</span></li>
+                        <li><span>2014</span> <span class="highlight">中国科大首研杯冠军</span></li>
+                        <li><span>2011</span> <span class="highlight">中国科大冠军联赛冠军</span></li>
+                        <li><span>2010</span> <span class="highlight">中国科大冠军联赛冠军</span></li>
+                    </ul>
+                </article>
+                <article class="football-card">
+                    <h4>⚽ 个人荣誉</h4>
+                    <ul class="football-list">
+                        <li><span>2025</span> <span class="highlight">驰拓贺岁杯金靴</span></li>
+                        <li><span>2025</span> <span class="highlight">余杭区未来杯金靴</span></li>
+                        <li><span>2025</span> <span class="highlight">G6贺岁杯金靴</span></li>
+                        <li><span>2024</span> <span class="highlight">G10校友联赛金靴</span></li>
+                        <li><span>2022</span> <span class="highlight">G10校友联赛金靴</span></li>
+                        <li><span>2022</span> <span class="highlight">海康威视内部联赛金球</span></li>
+                        <li><span>2021</span> <span class="highlight">G6校友联赛金靴</span></li>
+                        <li><span>2020</span> <span class="highlight">G6校友联赛金球+金靴</span></li>
+                        <li><span>2019</span> <span class="highlight">纵贯贺岁杯金靴</span></li>
+                        <li><span>2019</span> <span class="highlight">G6校友联赛金靴</span></li>
+                        <li><span>2019</span> <span class="highlight">G10校友联赛金靴</span></li>
+                        <li><span>2018</span> <span class="highlight">海康威视内部联赛金靴</span></li>
+                        <li><span>2017</span> <span class="highlight">滨企联赛金球+金靴</span></li>
+                        <li><span>2017</span> <span class="highlight">中国科大冠军杯金靴</span></li>
+                        <li><span>2014</span> <span class="highlight">中国科大首研杯金靴</span></li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy; 2026 任文奇. All Rights Reserved.</p>
+        <p>Hikvision Research Institute</p>
+        <a href="https://info.flagcounter.com/NQsg" target="_blank" rel="noopener"><img src="https://s01.flagcounter.com/count2/NQsg/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" loading="lazy" style="border:0"></a>
+    </footer>
+
+    <!-- 脚本 -->
+    <script>
+        // 移动端菜单切换
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+
+        // 点击页面其他地方关闭菜单
+        document.addEventListener('click', function(e) {
+            const menu = document.getElementById('mobileMenu');
+            const btn = document.querySelector('.mobile-menu-btn');
+            if (!menu.contains(e.target) && !btn.contains(e.target)) {
+                menu.classList.remove('active');
+            }
+        });
+
+        // 学术成果展开/折叠功能
+        function togglePubSection(listId, btn) {
+            const list = document.getElementById(listId);
+            const hiddenItems = list.querySelectorAll('.hidden-item');
+            const isExpanded = btn.textContent.includes('折叠');
+            
+            hiddenItems.forEach(item => {
+                if (isExpanded) {
+                    item.classList.remove('show');
+                } else {
+                    item.classList.add('show');
+                }
+            });
+            
+            btn.textContent = isExpanded ? '展开更多 ▼' : '折叠 ▲';
+        }
+        
+        // 科研项目折叠功能
+        function toggleProjects() {
+            const hiddenProjects = document.querySelectorAll('.hidden-project');
+            const btn = document.getElementById('project-expand-btn');
+            const isExpanded = btn.textContent.includes('折叠');
+            
+            hiddenProjects.forEach(project => {
+                if (isExpanded) {
+                    project.classList.remove('show');
+                } else {
+                    project.classList.add('show');
+                }
+            });
+            
+            btn.textContent = isExpanded ? '展开更多项目 (7项) ▼' : '折叠项目 ▲';
+        }
+    </script>
+
+</body>
+</html>
