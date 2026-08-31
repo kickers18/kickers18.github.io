@@ -604,8 +604,6 @@
         }
         
         @media (max-width: 768px) {
-            /* 主题按钮避开移动端 ☰ 菜单按钮 */
-            .theme-toggle { right: 64px; top: 14px; }
             .patent-grid {
                 grid-template-columns: 1fr;
             }
@@ -838,25 +836,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ==================== 主题切换按钮 ==================== */
-        .theme-toggle {
-            position: fixed;
-            top: 16px;
-            right: 20px;
-            z-index: 1100;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            border: 1px solid var(--border);
-            background: var(--bg-card);
-            color: var(--text-main);
-            cursor: pointer;
-            font-size: 1.1rem;
-            line-height: 1;
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .theme-toggle:hover { transform: scale(1.1); box-shadow: var(--shadow-md); }
 
         /* ==================== BibTeX 复制按钮 ==================== */
         .cite-btn {
@@ -904,41 +883,10 @@
         .hero-contact a.mail-link { border-bottom: 1px dashed var(--text-light); }
         .hero-contact a.mail-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
 
-        /* ==================== 深色模式 ==================== */
-        body.dark-theme {
-            --primary: #90cdf4;
-            --primary-light: #bee3f8;
-            --accent: #63b3ed;
-            --accent-light: #90cdf4;
-            --gold: #ecc94b;
-            --bg-body: #171923;
-            --bg-card: #1f2430;
-            --text-main: #e2e8f0;
-            --text-sub: #cbd5e0;
-            --text-light: #a0aec0;
-            --border: #2d3748;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
-            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.5), 0 2px 4px -1px rgba(0,0,0,0.4);
-            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5), 0 4px 6px -2px rgba(0,0,0,0.4);
-        }
-        body.dark-theme .navbar { background: rgba(31, 36, 48, 0.95); }
-        body.dark-theme .mobile-menu { background: #1f2430; border-bottom: 1px solid var(--border); }
-        body.dark-theme .hero { background: linear-gradient(135deg, #1a365d 0%, #23324d 100%); }
-        body.dark-theme .hero-subtitle,
-        body.dark-theme .hero-contact { color: #cbd5e0; }
-        body.dark-theme .status-ongoing { background: #5f4e0a; color: #f6e05e; }
-        body.dark-theme .status-completed { background: #22543d; color: #9ae6b4; }
-        body.dark-theme .award-item,
-        body.dark-theme .profile-card,
-        body.dark-theme .card,
-        body.dark-theme .pub-item,
-        body.dark-theme .exp-item { background: var(--bg-card); }
-        body.dark-theme .football-section { background: #1a202c; }
-        body.dark-theme .mobile-menu a { color: var(--text-main); }
 
         /* ==================== 打印样式（Ctrl+P 即得简历版 CV） ==================== */
         @media print {
-            .navbar, .mobile-menu, .mobile-menu-btn, .theme-toggle,
+            .navbar, .mobile-menu, .mobile-menu-btn,
             .expand-btn, .cite-btn, .footer-counter { display: none !important; }
             .tab-panel { display: block !important; page-break-before: always; }
             .tab-panel:first-of-type { page-break-before: avoid; }
@@ -969,8 +917,6 @@
         </div>
     </nav>
 
-    <!-- 深色模式切换 -->
-    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="切换深色/浅色模式" title="切换深色/浅色模式">🌙</button>
 
     <!-- 移动端菜单 -->
     <div class="mobile-menu" id="mobileMenu">
@@ -1823,7 +1769,7 @@
                             <li><span>2026</span> <span class="highlight">第一届"野派加"五人制邀请赛冠军</span></li>
                             <li><span>2026</span> <span class="highlight">G6贺岁杯冠军</span></li>
                             <li><span>2025</span> <span class="highlight">驰拓贺岁杯冠军</span></li>
-                            <li><span>2025</span> <span class="highlight">余杭区未来杯冠军</span></li>
+                            <li><span>2025</span> <span class="highlight">第一届余杭区未来杯冠军</span></li>
                             <li><span>2025</span> <span class="highlight">滨青杯冠军</span></li>
                             <li><span>2025</span> <span class="highlight">G6贺岁杯冠军</span></li>
                             <li><span>2024</span> <span class="highlight">海康集团足协杯冠军</span></li>
@@ -1891,28 +1837,6 @@
 
     <!-- 脚本 -->
     <script>
-        // ==================== 深色模式 ====================
-        function applyTheme(dark) {
-            document.body.classList.toggle('dark-theme', dark);
-            var btn = document.getElementById('themeToggle');
-            if (btn) {
-                btn.textContent = dark ? '☀️' : '🌙';
-                btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
-            }
-        }
-        function toggleTheme() {
-            var dark = !document.body.classList.contains('dark-theme');
-            try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
-            applyTheme(dark);
-        }
-        (function initTheme() {
-            var saved = null;
-            try { saved = localStorage.getItem('theme'); } catch (e) {}
-            var dark = saved ? saved === 'dark'
-                             : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-            document.addEventListener('DOMContentLoaded', function() { applyTheme(dark); });
-        })();
-
         // ==================== 反爬邮箱：运行时拼接为可点击链接 ====================
         document.addEventListener('DOMContentLoaded', function() {
             var u = 'renwenqi', d = 'hikvision' + '.' + 'com';
