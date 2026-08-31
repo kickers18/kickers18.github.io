@@ -46,9 +46,8 @@
 - 新增：Google Scholar / GitHub 入口、邮箱 mailto 可点击（源码仍反爬）、深色模式、BibTeX 一键复制（27 条）、打印样式（Ctrl+P 得 CV）、JSON-LD 结构化数据、og:image、favicon、页脚"最后更新"
 - 无障碍：导航 role=tab / aria-selected / 键盘 ←→ 切换
 
-## 推送认证（2026-08-31 实测）
+## 推送认证（2026-08-31 已打通，全自动）
 
-本机网络环境 SSH（22/443）到 GitHub 均被连接重置，不可用；HTTPS 正常。
-采用方案：HTTPS + Windows 凭据管理器（GCM）。
-- 方式 A：用户在本机终端（非 WorkBuddy Bash）进入本目录执行一次 `git push`，浏览器 OAuth 授权一次后凭据长期缓存。
-- 方式 B：用户提供 fine-grained PAT（仅本仓库 Contents 读写），由助手写入 GCM。
+- WorkBuddy 环境的 PortableGit 的 GCM 弹不出终端提示（/dev/tty），但 **wincred helper 可直接读取 Windows 凭据管理器**中用户 OAuth 授权存入的 github.com 凭据。
+- 仓库已配置：`git config credential.helper ""` + `git config --add credential.helper wincred`。
+- 结论：WorkBuddy 里可直接 `git push`，无需用户任何手动操作。SSH(22/443) 均被网络重置，弃用。
