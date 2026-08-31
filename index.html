@@ -11,6 +11,29 @@
     <meta property="og:description" content="杭州市C类高层次人才，CCF高级会员，专注于人工智能、物联网与大数据研究">
     <meta property="og:type" content="profile">
     <meta property="og:locale" content="zh_CN">
+    <meta property="og:url" content="https://kickers18.github.io/">
+    <meta property="og:image" content="https://kickers18.github.io/my_photo.jpg">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+
+    <!-- 结构化数据（利于 Google 知识图谱收录） -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "任文奇",
+      "alternateName": "Wenqi Ren",
+      "url": "https://kickers18.github.io/",
+      "image": "https://kickers18.github.io/my_photo.jpg",
+      "jobTitle": "技术战略总监",
+      "worksFor": { "@type": "Organization", "name": "海康威视研究院" },
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "University of Science and Technology of China" },
+        { "@type": "CollegeOrUniversity", "name": "Zhejiang University" }
+      ],
+      "knowsAbout": ["人工智能", "物联网", "大数据", "标准化", "计算机视觉"]
+    }
+    </script>
     
     <!-- 字体：使用系统字体栈，避免外部依赖 -->
     <style>
@@ -581,6 +604,8 @@
         }
         
         @media (max-width: 768px) {
+            /* 主题按钮避开移动端 ☰ 菜单按钮 */
+            .theme-toggle { right: 64px; top: 14px; }
             .patent-grid {
                 grid-template-columns: 1fr;
             }
@@ -812,6 +837,117 @@
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* ==================== 主题切换按钮 ==================== */
+        .theme-toggle {
+            position: fixed;
+            top: 16px;
+            right: 20px;
+            z-index: 1100;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-main);
+            cursor: pointer;
+            font-size: 1.1rem;
+            line-height: 1;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .theme-toggle:hover { transform: scale(1.1); box-shadow: var(--shadow-md); }
+
+        /* ==================== BibTeX 复制按钮 ==================== */
+        .cite-btn {
+            display: inline-block;
+            margin-left: 8px;
+            padding: 2px 10px;
+            font-size: 0.72rem;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-sub);
+            cursor: pointer;
+            vertical-align: middle;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .cite-btn:hover { border-color: var(--accent); color: var(--accent); }
+        .cite-btn.copied { border-color: #38a169; color: #38a169; }
+
+        /* ==================== 学术身份链接 ==================== */
+        .hero-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 14px;
+            flex-wrap: wrap;
+        }
+        .hero-social a {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 16px;
+            border-radius: 999px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s;
+        }
+        .hero-social a:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-1px);
+        }
+        .hero-contact a.mail-link { border-bottom: 1px dashed var(--text-light); }
+        .hero-contact a.mail-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+        /* ==================== 深色模式 ==================== */
+        body.dark-theme {
+            --primary: #90cdf4;
+            --primary-light: #bee3f8;
+            --accent: #63b3ed;
+            --accent-light: #90cdf4;
+            --gold: #ecc94b;
+            --bg-body: #171923;
+            --bg-card: #1f2430;
+            --text-main: #e2e8f0;
+            --text-sub: #cbd5e0;
+            --text-light: #a0aec0;
+            --border: #2d3748;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.5), 0 2px 4px -1px rgba(0,0,0,0.4);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5), 0 4px 6px -2px rgba(0,0,0,0.4);
+        }
+        body.dark-theme .navbar { background: rgba(31, 36, 48, 0.95); }
+        body.dark-theme .mobile-menu { background: #1f2430; border-bottom: 1px solid var(--border); }
+        body.dark-theme .hero { background: linear-gradient(135deg, #1a365d 0%, #23324d 100%); }
+        body.dark-theme .hero-subtitle,
+        body.dark-theme .hero-contact { color: #cbd5e0; }
+        body.dark-theme .status-ongoing { background: #5f4e0a; color: #f6e05e; }
+        body.dark-theme .status-completed { background: #22543d; color: #9ae6b4; }
+        body.dark-theme .award-item,
+        body.dark-theme .profile-card,
+        body.dark-theme .card,
+        body.dark-theme .pub-item,
+        body.dark-theme .exp-item { background: var(--bg-card); }
+        body.dark-theme .football-section { background: #1a202c; }
+        body.dark-theme .mobile-menu a { color: var(--text-main); }
+
+        /* ==================== 打印样式（Ctrl+P 即得简历版 CV） ==================== */
+        @media print {
+            .navbar, .mobile-menu, .mobile-menu-btn, .theme-toggle,
+            .expand-btn, .cite-btn, .footer-counter { display: none !important; }
+            .tab-panel { display: block !important; page-break-before: always; }
+            .tab-panel:first-of-type { page-break-before: avoid; }
+            .hero { background: #fff !important; color: #000 !important; padding: 20px 0 !important; }
+            .hero-subtitle, .hero-contact { color: #333 !important; }
+            body { background: #fff !important; color: #000 !important; }
+            .hidden-item, .hidden-project { display: block !important; }
+            a { color: #000 !important; text-decoration: underline; }
+        }
     </style>
 </head>
 <body>
@@ -821,27 +957,30 @@
         <div class="nav-container">
             <a href="#" class="nav-logo">Ren Wenqi</a>
             <div class="nav-links">
-                <a onclick="switchTab('profile')" data-tab="profile" class="active">关于</a>
-                <a onclick="switchTab('experience')" data-tab="experience">经历</a>
-                <a onclick="switchTab('projects')" data-tab="projects">项目</a>
-                <a onclick="switchTab('awards')" data-tab="awards">奖项</a>
-                <a onclick="switchTab('publications')" data-tab="publications">学术成果</a>
-                <a onclick="switchTab('service')" data-tab="service">服务</a>
-                <a onclick="switchTab('football')" data-tab="football">足球</a>
+                <a href="#profile" data-tab="profile" role="tab" tabindex="0" class="active" aria-selected="true" onclick="switchTab('profile');return false;">关于</a>
+                <a href="#experience" data-tab="experience" role="tab" tabindex="0" aria-selected="false" onclick="switchTab('experience');return false;">经历</a>
+                <a href="#projects" data-tab="projects" role="tab" tabindex="0" aria-selected="false" onclick="switchTab('projects');return false;">项目</a>
+                <a href="#awards" data-tab="awards" role="tab" tabindex="0" aria-selected="false" onclick="switchTab('awards');return false;">奖项</a>
+                <a href="#publications" data-tab="publications" role="tab" tabindex="0" aria-selected="false" onclick="switchTab('publications');return false;">学术成果</a>
+                <a href="#service" data-tab="service" role="tab" tabindex="0" aria-selected="false" onclick="switchTab('service');return false;">服务</a>
+                <a href="#football" data-tab="football" role="tab" tabindex="0" aria-selected="false" onclick="switchTab('football');return false;">足球</a>
             </div>
             <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="菜单">☰</button>
         </div>
     </nav>
 
+    <!-- 深色模式切换 -->
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="切换深色/浅色模式" title="切换深色/浅色模式">🌙</button>
+
     <!-- 移动端菜单 -->
     <div class="mobile-menu" id="mobileMenu">
-        <a onclick="switchTab('profile'); toggleMobileMenu();" data-tab="profile">关于</a>
-        <a onclick="switchTab('experience'); toggleMobileMenu();" data-tab="experience">经历</a>
-        <a onclick="switchTab('projects'); toggleMobileMenu();" data-tab="projects">项目</a>
-        <a onclick="switchTab('awards'); toggleMobileMenu();" data-tab="awards">奖项</a>
-        <a onclick="switchTab('publications'); toggleMobileMenu();" data-tab="publications">学术成果</a>
-        <a onclick="switchTab('service'); toggleMobileMenu();" data-tab="service">服务</a>
-        <a onclick="switchTab('football'); toggleMobileMenu();" data-tab="football">足球</a>
+        <a href="#profile" data-tab="profile" role="tab" onclick="switchTab('profile'); toggleMobileMenu();return false;">关于</a>
+        <a href="#experience" data-tab="experience" role="tab" onclick="switchTab('experience'); toggleMobileMenu();return false;">经历</a>
+        <a href="#projects" data-tab="projects" role="tab" onclick="switchTab('projects'); toggleMobileMenu();return false;">项目</a>
+        <a href="#awards" data-tab="awards" role="tab" onclick="switchTab('awards'); toggleMobileMenu();return false;">奖项</a>
+        <a href="#publications" data-tab="publications" role="tab" onclick="switchTab('publications'); toggleMobileMenu();return false;">学术成果</a>
+        <a href="#service" data-tab="service" role="tab" onclick="switchTab('service'); toggleMobileMenu();return false;">服务</a>
+        <a href="#football" data-tab="football" role="tab" onclick="switchTab('football'); toggleMobileMenu();return false;">足球</a>
     </div>
 
     <!-- Hero 区域 -->
@@ -859,9 +998,14 @@
                 </div>
 
                 <div class="hero-contact">
-                    <div>📧 renwenqi AT hikvision dot com</div>
+                    <div>📧 <a class="mail-link" id="email-link" href="#" onclick="return false;">renwenqi AT hikvision dot com</a></div>
                     <div>📍 杭州市滨江区阡陌路555号</div>
                     <div>🎓 中国科大博士 / 浙江大学博士后</div>
+                </div>
+
+                <div class="hero-social">
+                    <a href="https://scholar.google.com/citations?user=b016Dg-zyb4C" target="_blank" rel="noopener" title="Google Scholar 学术主页">🎓 Google Scholar</a>
+                    <a href="https://github.com/kickers18" target="_blank" rel="noopener" title="GitHub">💻 GitHub</a>
                 </div>
             </div>
             
@@ -1122,60 +1266,115 @@
                 </div>
                 <div class="pub-list" id="journal-list">
                      <article class="pub-item">
-                        <div class="pub-title"><a href="https://www.sciencedirect.com/science/article/abs/pii/S0950705126009937" target="_blank" rel="noopener">Automated Data Synthesis and Retrieval-Augmented Generation for Legal Large Language Models</a> <span class="pub-badge"></span></div>
+                        <div class="pub-title"><a href="https://doi.org/10.1016/j.knosys.2026.116267" target="_blank" rel="noopener">Automated Data Synthesis and Retrieval-Augmented Generation for Legal Large Language Models</a></div>
                         <div class="pub-meta">Knowledge-Based Systems, Volume 347, 2026 </div>
-                        <div class="pub-meta" style="margin-top:0.2rem"><b>Wenqi Ren</b>, Lixing Shen, Jiang Zhu, Shaohui Li, Yinxia Hong, Jiawei Wang, Da Cao</div>
+                        <div class="pub-meta" style="margin-top:0.2rem"><b>Wenqi Ren</b>, Lixing Shen, Jiang Zhu, Shaohui Li, Yinxia Hong, Jiawei Wang, Da Cao</div> <button class="cite-btn" data-bib="@article{Ren2026Automated,
+  title     = {Automated Data Synthesis and Retrieval-Augmented Generation for Legal Large Language Models},
+  author    = {Wenqi Ren, Lixing Shen, Jiang Zhu, Shaohui Li, Yinxia Hong, Jiawei Wang, Da Cao},
+  journal = {Knowledge-Based Systems, Volume 347, 2026},
+  year      = {2026}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     
                    <article class="pub-item">
-                        <div class="pub-title"><a href="https://www.mdpi.com/journal/sensors" target="_blank" rel="noopener">Coal Calorific Value Prediction via Multi-view Transformer</a> <span class="pub-badge">通信作者</span></div>
+                        <div class="pub-title"><a href="https://doi.org/10.3390/s26134244" target="_blank" rel="noopener">Coal Calorific Value Prediction via Multi-view Transformer</a> <span class="pub-badge">通信作者</span></div>
                         <div class="pub-meta">Sensors, 2026(Accepted)</div>
-                        <div class="pub-meta" style="margin-top:0.2rem">Donglian Zhang, Junzhuang Li, Zhefei Tian *, Yilu Guo, Xiaoqiang Ren, <b>Wenqi Ren*</b>, Xiang Li, Peiyi Zhang</div>
+                        <div class="pub-meta" style="margin-top:0.2rem">Donglian Zhang, Junzhuang Li, Zhefei Tian *, Yilu Guo, Xiaoqiang Ren, <b>Wenqi Ren*</b>, Xiang Li, Peiyi Zhang</div> <button class="cite-btn" data-bib="@article{Zhang2026Coal,
+  title     = {Coal Calorific Value Prediction via Multi-view Transformer 通信作者},
+  author    = {Donglian Zhang, Junzhuang Li, Zhefei Tian *, Yilu Guo, Xiaoqiang Ren, Wenqi Ren*, Xiang Li, Peiyi Zhang},
+  journal = {Sensors, 2026(Accepted)},
+  year      = {2026}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                      </article>
                     <article class="pub-item">
                         <div class="pub-title"><a href="https://mc03.manuscriptcentral.com/scis?DOWNLOAD=TRUE&PARAMS=xik_EXRVSibDGbBLzY7cV6PTDrbs7m3pn71mdPYD56yJLR94rxd56S3fDcSmF56nBzbgtXJzWutvESX2zJRgHWMryRxBfA8pTNxJKi54kV5KwkCtuHQND7enWhvAzduXXR2RRaC1naBmXK35mWKMBg3N1pK7RifX3xLyE2Ry9kKk3TE1bc3KSzQZwKzVyB9g27Yczc4GA" target="_blank" rel="noopener">Towards Multi-Domain Chinese Document VQA: a New Dataset and Comprehensive Evaluation</a> <span class="pub-badge">通信作者</span></div>
                         <div class="pub-meta">SCIENCE CHINA Information Sciences, 2026(Accepted)</div>
-                        <div class="pub-meta" style="margin-top:0.2rem">Liang Qiao*, Can Li, Huiyan Wu, Yunlu Xu, Yi Niu, <b>Wenqi Ren*</b> & Xi Li</div>
+                        <div class="pub-meta" style="margin-top:0.2rem">Liang Qiao*, Can Li, Huiyan Wu, Yunlu Xu, Yi Niu, <b>Wenqi Ren*</b> & Xi Li</div> <button class="cite-btn" data-bib="@article{Qiao2026Towards,
+  title     = {Towards Multi-Domain Chinese Document VQA: a New Dataset and Comprehensive Evaluation 通信作者},
+  author    = {Liang Qiao*, Can Li, Huiyan Wu, Yunlu Xu, Yi Niu, Wenqi Ren* &amp; Xi Li},
+  journal = {SCIENCE CHINA Information Sciences, 2026(Accepted)},
+  year      = {2026}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item">
                         <div class="pub-title"><a href="https://jgcm.ac.cn/cn/article/id/71eb322f-c3ad-493a-bfa5-5218fe70bca5" target="_blank" rel="noopener">智能物联感知关键技术及应用</a> <span class="pub-badge">通信作者</span></div>
                         <div class="pub-meta">智能感知工程, 2024, 1(1): 51-59.(邀稿，年度优秀论文奖)</div>
-                        <div class="pub-meta" style="margin-top:0.2rem">浦世亮，<b>任文奇*</b>，朱江，陈方栋，钟凯伦</div>
+                        <div class="pub-meta" style="margin-top:0.2rem">浦世亮，<b>任文奇*</b>，朱江，陈方栋，钟凯伦</div> <button class="cite-btn" data-bib="@article{2024,
+  title     = {智能物联感知关键技术及应用 通信作者},
+  author    = {浦世亮，任文奇*，朱江，陈方栋，钟凯伦},
+  journal = {智能感知工程, 2024, 1(1): 51-59.(邀稿，年度优秀论文奖)},
+  year      = {2024}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item">
                         <div class="pub-title"><a href="https://doi.org/10.1016/j.optlastec.2026.114830" target="_blank" rel="noopener">Hardware-free low-frequency drift compensation method for interferometric fiber-optic vibration sensing</a></div>
                         <div class="pub-meta">Optics & Laser Technology Vol. 197, May 2026</div>
-                        <div class="pub-meta" style="margin-top:0.2rem">Ke Ai, Cunzheng Fan, Shuolong Zhu, Bin Lu, <b>Wenqi Ren</b>, Junfeng Chen, Zhan Chen*, Hao Li, Zhijun Yan, Qizhen Sun*</div>
+                        <div class="pub-meta" style="margin-top:0.2rem">Ke Ai, Cunzheng Fan, Shuolong Zhu, Bin Lu, <b>Wenqi Ren</b>, Junfeng Chen, Zhan Chen*, Hao Li, Zhijun Yan, Qizhen Sun*</div> <button class="cite-btn" data-bib="@article{Ai2026Hardwarefree,
+  title     = {Hardware-free low-frequency drift compensation method for interferometric fiber-optic vibration sensing},
+  author    = {Ke Ai, Cunzheng Fan, Shuolong Zhu, Bin Lu, Wenqi Ren, Junfeng Chen, Zhan Chen*, Hao Li, Zhijun Yan, Qizhen Sun*},
+  journal = {Optics &amp; Laser Technology Vol. 197, May 2026},
+  year      = {2026}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item">
                         <div class="pub-title"><a href="https://doi.org/10.29026/oes.2024.240016" target="_blank" rel="noopener">Genetic algorithm assisted meta-atom design for high-performance metasurface optics</a></div>
                         <div class="pub-meta">Opto-Electron Sci 3, 240016, 2024</div>
-                        <div class="pub-meta" style="margin-top:0.2rem">Zhenjie Yu, Moxin Li, Zhenyu Xing, Hao Gao, Zeyang Liu, Shiliang Pu, Hui Mao, Hong Cai, Qiang Ma, <b>Wenqi Ren</b>, Jiang Zhu, Cheng Zhang</div>
+                        <div class="pub-meta" style="margin-top:0.2rem">Zhenjie Yu, Moxin Li, Zhenyu Xing, Hao Gao, Zeyang Liu, Shiliang Pu, Hui Mao, Hong Cai, Qiang Ma, <b>Wenqi Ren</b>, Jiang Zhu, Cheng Zhang</div> <button class="cite-btn" data-bib="@article{Yu2024Genetic,
+  title     = {Genetic algorithm assisted meta-atom design for high-performance metasurface optics},
+  author    = {Zhenjie Yu, Moxin Li, Zhenyu Xing, Hao Gao, Zeyang Liu, Shiliang Pu, Hui Mao, Hong Cai, Qiang Ma, Wenqi Ren, Jiang Zhu, Cheng Zhang},
+  journal = {Opto-Electron Sci 3, 240016, 2024},
+  year      = {2024}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item">
                         <div class="pub-title"><a href="https://doi.org/10.1115/1.4036335" target="_blank" rel="noopener">Development of a multimodal colposcopy for early screening of cervical intraepithelial neoplasia</a></div>
                         <div class="pub-meta">Journal of Medical Devices, 2017, 11(3): 031005</div>
-                        <div class="pub-meta" style="margin-top:0.2rem"><b>Wenqi Ren</b>, Yingjie Qu, Jiaojiao Pei, Linlin Xiao, Shiwu Zhang</div>
+                        <div class="pub-meta" style="margin-top:0.2rem"><b>Wenqi Ren</b>, Yingjie Qu, Jiaojiao Pei, Linlin Xiao, Shiwu Zhang</div> <button class="cite-btn" data-bib="@article{Ren2017Development,
+  title     = {Development of a multimodal colposcopy for early screening of cervical intraepithelial neoplasia},
+  author    = {Wenqi Ren, Yingjie Qu, Jiaojiao Pei, Linlin Xiao, Shiwu Zhang},
+  journal = {Journal of Medical Devices, 2017, 11(3): 031005},
+  year      = {2017}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item hidden-item">
                         <div class="pub-title"><a href="https://doi.org/10.1117/1.JBO.20.12.121307" target="_blank" rel="noopener">Quasi-simultaneous multimodal imaging of cutaneous tissue oxygenation and perfusion</a></div>
                         <div class="pub-meta">Journal of Biomedical Optics, 2015, 20(12): 121307</div>
-                        <div class="pub-meta" style="margin-top:0.2rem"><b>Wenqi Ren</b>, Qi Gan, Qiang Wu, Shiwu Zhang, Ronald X. Xu</div>
+                        <div class="pub-meta" style="margin-top:0.2rem"><b>Wenqi Ren</b>, Qi Gan, Qiang Wu, Shiwu Zhang, Ronald X. Xu</div> <button class="cite-btn" data-bib="@article{Ren2015Quasisimultaneous,
+  title     = {Quasi-simultaneous multimodal imaging of cutaneous tissue oxygenation and perfusion},
+  author    = {Wenqi Ren, Qi Gan, Qiang Wu, Shiwu Zhang, Ronald X. Xu},
+  journal = {Journal of Biomedical Optics, 2015, 20(12): 121307},
+  year      = {2015}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item hidden-item">
                         <div class="pub-title"><a href="https://doi.org/10.1117/1.JBO.20.12.121308" target="_blank" rel="noopener">Microfabrication of polydimethylsiloxane phantoms to simulate tumor hypoxia and vascular anomaly</a></div>
                         <div class="pub-meta">Journal of biomedical optics, 2015, 20(12): 121308</div>
-                        <div class="pub-meta" style="margin-top:0.2rem">Qiang Wu, <b>Wenqi Ren</b>, Zelin Yu, Erbao Dong, Shiwu Zhang, Ronald X. Xu</div>
+                        <div class="pub-meta" style="margin-top:0.2rem">Qiang Wu, <b>Wenqi Ren</b>, Zelin Yu, Erbao Dong, Shiwu Zhang, Ronald X. Xu</div> <button class="cite-btn" data-bib="@article{Wu2015Microfabrication,
+  title     = {Microfabrication of polydimethylsiloxane phantoms to simulate tumor hypoxia and vascular anomaly},
+  author    = {Qiang Wu, Wenqi Ren, Zelin Yu, Erbao Dong, Shiwu Zhang, Ronald X. Xu},
+  journal = {Journal of biomedical optics, 2015, 20(12): 121308},
+  year      = {2015}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item hidden-item">
                         <div class="pub-title"><a href="https://doi.org/10.1117/1.JBO.20.1.016016" target="_blank" rel="noopener">Multimodal imaging of cutaneous wound tissue</a></div>
                         <div class="pub-meta">Journal of biomedical optics, 2015, 20(1): 016016</div>
-                        <div class="pub-meta" style="margin-top:0.2rem">Shiwu Zhang, Surya Gnyawali, Jiwei Huang, <b>Wenqi Ren</b>, Gayle Gordillo, Chandan K. Sen, Ronald X. Xu</div>
+                        <div class="pub-meta" style="margin-top:0.2rem">Shiwu Zhang, Surya Gnyawali, Jiwei Huang, <b>Wenqi Ren</b>, Gayle Gordillo, Chandan K. Sen, Ronald X. Xu</div> <button class="cite-btn" data-bib="@article{Zhang2015Multimodal,
+  title     = {Multimodal imaging of cutaneous wound tissue},
+  author    = {Shiwu Zhang, Surya Gnyawali, Jiwei Huang, Wenqi Ren, Gayle Gordillo, Chandan K. Sen, Ronald X. Xu},
+  journal = {Journal of biomedical optics, 2015, 20(1): 016016},
+  year      = {2015}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item hidden-item">
                         <div class="pub-title"><a href="https://doi.org/10.1007/s00170-012-4183-3" target="_blank" rel="noopener">Thermal error modeling and compensation of long-travel nanopositioning stage</a></div>
                         <div class="pub-meta">The International Journal of Advanced Manufacturing Technology, 2013</div>
-                        <div class="pub-meta" style="margin-top:0.2rem">Jian Wang, Chuanrui Zhu, Minglun Feng, <b>Wenqi Ren</b></div>
+                        <div class="pub-meta" style="margin-top:0.2rem">Jian Wang, Chuanrui Zhu, Minglun Feng, <b>Wenqi Ren</b></div> <button class="cite-btn" data-bib="@article{Wang2013Thermal,
+  title     = {Thermal error modeling and compensation of long-travel nanopositioning stage},
+  author    = {Jian Wang, Chuanrui Zhu, Minglun Feng, Wenqi Ren},
+  journal = {The International Journal of Advanced Manufacturing Technology, 2013},
+  year      = {2013}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                 </div>
                 <button class="expand-btn" onclick="togglePubSection('journal-list', this)">展开更多 ▼</button>
@@ -1188,84 +1387,164 @@
                 </div>
                 <div class="pub-list" id="conf-list">
                    <article class="pub-item">
-                        <div class="pub-title"><a href="https://dl.acm.org/conference/cikm" target="_blank" rel="noopener">FAME: Frequency-Enhanced Pre-trained Model for Time Series Forecasting</a> <span class="pub-badge">通信作者</span></div>
+                        <div class="pub-title">FAME: Frequency-Enhanced Pre-trained Model for Time Series Forecasting <span class="pub-badge">通信作者</span></div>
                          <div class="pub-meta">CIKM 2026</div>
-                        <div class="pub-meta" style="margin-top:0.2rem">Hao Guo, Ruiheng Yang, Hong Zhao, Yao Fu, Weihao Jiang, <b>Wenqi Ren*</b> </div>
+                        <div class="pub-meta" style="margin-top:0.2rem">Hao Guo, Ruiheng Yang, Hong Zhao, Yao Fu, Weihao Jiang, <b>Wenqi Ren*</b> </div> <button class="cite-btn" data-bib="@inproceedings{Guo2026FAME,
+  title     = {FAME: Frequency-Enhanced Pre-trained Model for Time Series Forecasting 通信作者},
+  author    = {Hao Guo, Ruiheng Yang, Hong Zhao, Yao Fu, Weihao Jiang, Wenqi Ren*},
+  booktitle = {CIKM 2026},
+  year      = {2026}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item">
-                        <div class="pub-title"><a href="https://easychair.org/my/welcome" target="_blank" rel="noopener">SIGNet: Multi-agent Trajectory Reconstruction with Hierarchical Social-Interactive Graph Attention</a> <span class="pub-badge">通信作者</span></div>
+                        <div class="pub-title">SIGNet: Multi-agent Trajectory Reconstruction with Hierarchical Social-Interactive Graph Attention <span class="pub-badge">通信作者</span></div>
                          <div class="pub-meta">ICTTS 2026</div>
-                        <div class="pub-meta" style="margin-top:0.2rem">Yuhang Chen, Liyong Zheng, Ruyi Fu, Qinpei Liu, <b>Wenqi Ren*</b> and Jie Sun</div>
+                        <div class="pub-meta" style="margin-top:0.2rem">Yuhang Chen, Liyong Zheng, Ruyi Fu, Qinpei Liu, <b>Wenqi Ren*</b> and Jie Sun</div> <button class="cite-btn" data-bib="@inproceedings{Chen2026SIGNet,
+  title     = {SIGNet: Multi-agent Trajectory Reconstruction with Hierarchical Social-Interactive Graph Attention 通信作者},
+  author    = {Yuhang Chen, Liyong Zheng, Ruyi Fu, Qinpei Liu, Wenqi Ren* and Jie Sun},
+  booktitle = {ICTTS 2026},
+  year      = {2026}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                          <article class="pub-item">
-                        <div class="pub-title"><a href="https://cmt3.research.microsoft.com/ChinaMM2026/Submission/Summary/23" target="_blank" rel="noopener">Multimodal Tool Calling via Data Synthesis for Scalable Zero-Shot Generalization</a> <span class="pub-badge"></span></div>
+                        <div class="pub-title"><a href="https://cmt3.research.microsoft.com/ChinaMM2026/Submission/Summary/23" target="_blank" rel="noopener">Multimodal Tool Calling via Data Synthesis for Scalable Zero-Shot Generalization</a></div>
                         <div class="pub-meta">ChinaMM 2026</div>
-                        <div class="pub-meta" style="margin-top:0.2rem"><b>Wenqi Ren</b>, Wenming Tan, Zhanhong Lu, Ye Ren*, Xingfan Shang, Qiwei Ma, Jiawei Wang , Da Cao*</div>
+                        <div class="pub-meta" style="margin-top:0.2rem"><b>Wenqi Ren</b>, Wenming Tan, Zhanhong Lu, Ye Ren*, Xingfan Shang, Qiwei Ma, Jiawei Wang , Da Cao*</div> <button class="cite-btn" data-bib="@inproceedings{Ren2026Multimodal,
+  title     = {Multimodal Tool Calling via Data Synthesis for Scalable Zero-Shot Generalization},
+  author    = {Wenqi Ren, Wenming Tan, Zhanhong Lu, Ye Ren*, Xingfan Shang, Qiwei Ma, Jiawei Wang, Da Cao*},
+  booktitle = {ChinaMM 2026},
+  year      = {2026}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item">
                         <div class="pub-title"><a href="https://arxiv.org/abs/2412.15601" target="_blank" rel="noopener">Gaze Label Alignment: Alleviating Domain Shift for Gaze Estimation</a> <span class="pub-badge">通信作者</span></div>
                         <div class="pub-meta">AAAI 2025</div>
-                        <div class="pub-meta" style="margin-top:0.2rem">Guanzhong Zeng, Jingjing Wang, Zefu Xu, Pengwei Yin, <b>Wenqi Ren*</b>, Di Xie, Jiang Zhu</div>
+                        <div class="pub-meta" style="margin-top:0.2rem">Guanzhong Zeng, Jingjing Wang, Zefu Xu, Pengwei Yin, <b>Wenqi Ren*</b>, Di Xie, Jiang Zhu</div> <button class="cite-btn" data-bib="@inproceedings{Zeng2025Gaze,
+  title     = {Gaze Label Alignment: Alleviating Domain Shift for Gaze Estimation 通信作者},
+  author    = {Guanzhong Zeng, Jingjing Wang, Zefu Xu, Pengwei Yin, Wenqi Ren*, Di Xie, Jiang Zhu},
+  booktitle = {AAAI 2025},
+  year      = {2025}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item">
                         <div class="pub-title">Semantic-Guided Global-Local Collaborative Prompt Learning for Few-Shot Class Incremental Learning</div>
                         <div class="pub-meta">CVPR 2026</div>
-                        <div class="pub-meta" style="margin-top:0.2rem">Yongxin Yan, Weisen Chen, Xingye Chen, Yuanjie Shao, Zhengrong Zuo, Wenming Tan, <b>Wenqi Ren</b>, Changxin Gao, Nong Sang</div>
+                        <div class="pub-meta" style="margin-top:0.2rem">Yongxin Yan, Weisen Chen, Xingye Chen, Yuanjie Shao, Zhengrong Zuo, Wenming Tan, <b>Wenqi Ren</b>, Changxin Gao, Nong Sang</div> <button class="cite-btn" data-bib="@inproceedings{Yan2026SemanticGuided,
+  title     = {Semantic-Guided Global-Local Collaborative Prompt Learning for Few-Shot Class Incremental Learning},
+  author    = {Yongxin Yan, Weisen Chen, Xingye Chen, Yuanjie Shao, Zhengrong Zuo, Wenming Tan, Wenqi Ren, Changxin Gao, Nong Sang},
+  booktitle = {CVPR 2026},
+  year      = {2026}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item">
                         <div class="pub-title"><a href="https://aclanthology.org/2024.acl-long.212/" target="_blank" rel="noopener">Insert or Attach: Taxonomy Completion via Box Embedding</a></div>
                         <div class="pub-meta">ACL 2024</div>
-                        <div class="pub-meta" style="margin-top:0.2rem">Wei Xue, Yongliang Shen, <b>Wenqi Ren</b>, Jietian Guo, Shiliang Pu, Weiming Lu</div>
+                        <div class="pub-meta" style="margin-top:0.2rem">Wei Xue, Yongliang Shen, <b>Wenqi Ren</b>, Jietian Guo, Shiliang Pu, Weiming Lu</div> <button class="cite-btn" data-bib="@inproceedings{Xue2024Insert,
+  title     = {Insert or Attach: Taxonomy Completion via Box Embedding},
+  author    = {Wei Xue, Yongliang Shen, Wenqi Ren, Jietian Guo, Shiliang Pu, Weiming Lu},
+  booktitle = {ACL 2024},
+  year      = {2024}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item">
                         <div class="pub-title"><a href="https://dl.acm.org/doi/10.1145/3637528.3671919" target="_blank" rel="noopener">SensitiveHUE: Multivariate Time Series Anomaly Detection by Enhancing the Sensitivity to Normal Patterns</a></div>
                         <div class="pub-meta">KDD 2024</div>
-                        <div class="pub-meta" style="margin-top:0.2rem">Yuye Feng, Wei Zhang, Yao Fu, Weihao Jiang, Zhu Jiang, <b>Wenqi Ren</b></div>
+                        <div class="pub-meta" style="margin-top:0.2rem">Yuye Feng, Wei Zhang, Yao Fu, Weihao Jiang, Zhu Jiang, <b>Wenqi Ren</b></div> <button class="cite-btn" data-bib="@inproceedings{Feng2024SensitiveHUE,
+  title     = {SensitiveHUE: Multivariate Time Series Anomaly Detection by Enhancing the Sensitivity to Normal Patterns},
+  author    = {Yuye Feng, Wei Zhang, Yao Fu, Weihao Jiang, Zhu Jiang, Wenqi Ren},
+  booktitle = {KDD 2024},
+  year      = {2024}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item">
                         <div class="pub-title"><a href="https://aclanthology.org/2023.emnlp-main.145/" target="_blank" rel="noopener">MProto: Multi-Prototype Network with Denoised Optimal Transport for Distantly Supervised Named Entity Recognition</a></div>
                         <div class="pub-meta">EMNLP 2023</div>
-                        <div class="pub-meta" style="margin-top:0.2rem">Shuhui Wu, Yongliang Shen, Zeqi Tan, <b>Wenqi Ren</b>, Jietian Guo, Shiliang Pu, Weiming Lu</div>
+                        <div class="pub-meta" style="margin-top:0.2rem">Shuhui Wu, Yongliang Shen, Zeqi Tan, <b>Wenqi Ren</b>, Jietian Guo, Shiliang Pu, Weiming Lu</div> <button class="cite-btn" data-bib="@inproceedings{Wu2023MProto,
+  title     = {MProto: Multi-Prototype Network with Denoised Optimal Transport for Distantly Supervised Named Entity Recognition},
+  author    = {Shuhui Wu, Yongliang Shen, Zeqi Tan, Wenqi Ren, Jietian Guo, Shiliang Pu, Weiming Lu},
+  booktitle = {EMNLP 2023},
+  year      = {2023}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item hidden-item">
                         <div class="pub-title"><a href="https://arxiv.org/abs/2102.11614" target="_blank" rel="noopener">Self-Supervised Noisy Label Learning for Source-Free Unsupervised Domain Adaptation</a></div>
                         <div class="pub-meta">ArXiv:2102.11614</div>
-                        <div class="pub-meta" style="margin-top:0.2rem">Weijie Chen, Luojun Lin, Shicai Yang, Di Xie, Shiliang Pu, Yueting Zhuang, <b>Wenqi Ren</b></div>
+                        <div class="pub-meta" style="margin-top:0.2rem">Weijie Chen, Luojun Lin, Shicai Yang, Di Xie, Shiliang Pu, Yueting Zhuang, <b>Wenqi Ren</b></div> <button class="cite-btn" data-bib="@inproceedings{ChenSelfSupervised,
+  title     = {Self-Supervised Noisy Label Learning for Source-Free Unsupervised Domain Adaptation},
+  author    = {Weijie Chen, Luojun Lin, Shicai Yang, Di Xie, Shiliang Pu, Yueting Zhuang, Wenqi Ren},
+  booktitle = {ArXiv:2102.11614},
+  year      = {}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item hidden-item">
                         <div class="pub-title"><a href="https://link.springer.com/content/pdf/10.1007/978-3-030-86549-8_7" target="_blank" rel="noopener">LGPMA: Complicated Table Structure Recognition with Local and Global Pyramid Mask Alignment</a> <span class="pub-badge">最佳工业论文奖</span></div>
                         <div class="pub-meta">ICDAR 2021</div>
-                        <div class="pub-meta" style="margin-top:0.2rem">Liang Qiao, Zaisheng Li, Zhanzhan Cheng, Peng Zhang, Shiliang Pu, Yi Niu, <b>Wenqi Ren</b>, Wenming Tan, Fei Wu</div>
+                        <div class="pub-meta" style="margin-top:0.2rem">Liang Qiao, Zaisheng Li, Zhanzhan Cheng, Peng Zhang, Shiliang Pu, Yi Niu, <b>Wenqi Ren</b>, Wenming Tan, Fei Wu</div> <button class="cite-btn" data-bib="@inproceedings{Qiao2021LGPMA,
+  title     = {LGPMA: Complicated Table Structure Recognition with Local and Global Pyramid Mask Alignment 最佳工业论文奖},
+  author    = {Liang Qiao, Zaisheng Li, Zhanzhan Cheng, Peng Zhang, Shiliang Pu, Yi Niu, Wenqi Ren, Wenming Tan, Fei Wu},
+  booktitle = {ICDAR 2021},
+  year      = {2021}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item hidden-item">
                         <div class="pub-title"><a href="https://link.springer.com/chapter/10.1007/978-3-030-86549-8_19" target="_blank" rel="noopener">Reciprocal Feature Learning via Explicit and Implicit Tasks in Scene Text Recognition</a></div>
                         <div class="pub-meta">ICDAR 2021</div>
-                        <div class="pub-meta" style="margin-top:0.2rem">Hui Jiang, Yunlu Xu, Zhanzhan Cheng, Shiliang Pu, Yi Niu, <b>Wenqi Ren</b>, Fei Wu, Wenming Tan</div>
+                        <div class="pub-meta" style="margin-top:0.2rem">Hui Jiang, Yunlu Xu, Zhanzhan Cheng, Shiliang Pu, Yi Niu, <b>Wenqi Ren</b>, Fei Wu, Wenming Tan</div> <button class="cite-btn" data-bib="@inproceedings{Jiang2021Reciprocal,
+  title     = {Reciprocal Feature Learning via Explicit and Implicit Tasks in Scene Text Recognition},
+  author    = {Hui Jiang, Yunlu Xu, Zhanzhan Cheng, Shiliang Pu, Yi Niu, Wenqi Ren, Fei Wu, Wenming Tan},
+  booktitle = {ICDAR 2021},
+  year      = {2021}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item hidden-item">
                         <div class="pub-title"><a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/9701/97010E/In-vivo-detection-of-cervical-intraepithelial-neoplasia-by-multimodal-colposcopy/10.1117/12.2212194.full" target="_blank" rel="noopener">In vivo detection of cervical intraepithelial neoplasia by multimodal colposcopy</a></div>
                         <div class="pub-meta">SPIE BiOS, 2016</div>
-                        <div class="pub-meta" style="margin-top:0.2rem"><b>Wenqi Ren</b>, Yingjie Qu, Jiaojiao Pei, Linlin Xiao, Shiwu Zhang, Shufang Chang, Zachary J. Smith, Ronald X. Xu</div>
+                        <div class="pub-meta" style="margin-top:0.2rem"><b>Wenqi Ren</b>, Yingjie Qu, Jiaojiao Pei, Linlin Xiao, Shiwu Zhang, Shufang Chang, Zachary J. Smith, Ronald X. Xu</div> <button class="cite-btn" data-bib="@inproceedings{Ren2016vivo,
+  title     = {In vivo detection of cervical intraepithelial neoplasia by multimodal colposcopy},
+  author    = {Wenqi Ren, Yingjie Qu, Jiaojiao Pei, Linlin Xiao, Shiwu Zhang, Shufang Chang, Zachary J. Smith, Ronald X. Xu},
+  booktitle = {SPIE BiOS, 2016},
+  year      = {2016}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item hidden-item">
                         <div class="pub-title"><a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/8937/893706/A-simultaneous-multimodal-imaging-system-for-tissue-functional-parameters/10.1117/12.2041008.full" target="_blank" rel="noopener">A simultaneous multimodal imaging system for tissue functional parameters</a></div>
                         <div class="pub-meta">SPIE BiOS, 2014</div>
-                        <div class="pub-meta" style="margin-top:0.2rem"><b>Wenqi Ren</b>, Zhiwu Zhang, Qiang Wu, Shiwu Zhang, Ronald X. Xu</div>
+                        <div class="pub-meta" style="margin-top:0.2rem"><b>Wenqi Ren</b>, Zhiwu Zhang, Qiang Wu, Shiwu Zhang, Ronald X. Xu</div> <button class="cite-btn" data-bib="@inproceedings{Ren2014simultaneous,
+  title     = {A simultaneous multimodal imaging system for tissue functional parameters},
+  author    = {Wenqi Ren, Zhiwu Zhang, Qiang Wu, Shiwu Zhang, Ronald X. Xu},
+  booktitle = {SPIE BiOS, 2014},
+  year      = {2014}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item hidden-item">
                         <div class="pub-title"><a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/9698/1/Image-guided-cold-atmosphere-plasma-CAP-therapy-for-cutaneous-wound/10.1117/12.2212516.full" target="_blank" rel="noopener">Image-guided cold atmosphere plasma (CAP) therapy for cutaneous wound</a></div>
                         <div class="pub-meta">SPIE BiOS, 2016</div>
-                        <div class="pub-meta" style="margin-top:0.2rem">Zelin Yu, <b>Wenqi Ren</b>, Qi Gan, Jiahong Li, XiangXiang Li, Shiwu Zhang, Fan Jin, Cheng Cheng, Yue Ting, Ronald X. Xu</div>
+                        <div class="pub-meta" style="margin-top:0.2rem">Zelin Yu, <b>Wenqi Ren</b>, Qi Gan, Jiahong Li, XiangXiang Li, Shiwu Zhang, Fan Jin, Cheng Cheng, Yue Ting, Ronald X. Xu</div> <button class="cite-btn" data-bib="@inproceedings{Yu2016Imageguided,
+  title     = {Image-guided cold atmosphere plasma (CAP) therapy for cutaneous wound},
+  author    = {Zelin Yu, Wenqi Ren, Qi Gan, Jiahong Li, XiangXiang Li, Shiwu Zhang, Fan Jin, Cheng Cheng, Yue Ting, Ronald X. Xu},
+  booktitle = {SPIE BiOS, 2016},
+  year      = {2016}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item hidden-item">
                         <div class="pub-title"><a href="https://www.spiedigitallibrary.org/conference-proceedings-of-spie/9715/97150Q/Polarized-hyperspectral-imaging-system-for-in-vivo-detection-of-vulvar/10.1117/12.2213802.full" target="_blank" rel="noopener">Polarized hyperspectral imaging system for in vivo detection of vulvar lichen sclerosis</a></div>
                         <div class="pub-meta">SPIE BiOS, 2016</div>
-                        <div class="pub-meta" style="margin-top:0.2rem">Yingjie Qu, <b>Wenqi Ren</b>, Songde Liu, Peng Liu, Lan Xie, Xiaoyuan Zhang, Shiwu Zhang, Shufang Chang, Ronald X. Xu</div>
+                        <div class="pub-meta" style="margin-top:0.2rem">Yingjie Qu, <b>Wenqi Ren</b>, Songde Liu, Peng Liu, Lan Xie, Xiaoyuan Zhang, Shiwu Zhang, Shufang Chang, Ronald X. Xu</div> <button class="cite-btn" data-bib="@inproceedings{Qu2016Polarized,
+  title     = {Polarized hyperspectral imaging system for in vivo detection of vulvar lichen sclerosis},
+  author    = {Yingjie Qu, Wenqi Ren, Songde Liu, Peng Liu, Lan Xie, Xiaoyuan Zhang, Shiwu Zhang, Shufang Chang, Ronald X. Xu},
+  booktitle = {SPIE BiOS, 2016},
+  year      = {2016}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                     <article class="pub-item hidden-item">
                         <div class="pub-title"><a href="https://spie.org/Publications/Proceedings/Paper/10.1117/12.2041092" target="_blank" rel="noopener">Image-guided plasma therapy of cutaneous wound</a></div>
                         <div class="pub-meta">SPIE BiOS, 2014</div>
-                        <div class="pub-meta" style="margin-top:0.2rem">Zhiwu Zhang, <b>Wenqi Ren</b>, Zelin Yu, Shiwu Zhang, Ting Yue, Ronald X. Xu</div>
+                        <div class="pub-meta" style="margin-top:0.2rem">Zhiwu Zhang, <b>Wenqi Ren</b>, Zelin Yu, Shiwu Zhang, Ting Yue, Ronald X. Xu</div> <button class="cite-btn" data-bib="@inproceedings{Zhang2014Imageguided,
+  title     = {Image-guided plasma therapy of cutaneous wound},
+  author    = {Zhiwu Zhang, Wenqi Ren, Zelin Yu, Shiwu Zhang, Ting Yue, Ronald X. Xu},
+  booktitle = {SPIE BiOS, 2014},
+  year      = {2014}
+}" title="复制 BibTeX">⧉ BibTeX</button>
                     </article>
                 </div>
                 <button class="expand-btn" onclick="togglePubSection('conf-list', this)">展开更多 ▼</button>
@@ -1278,91 +1557,91 @@
                 </div>
                 <div class="patent-grid" id="patent-list">
                     <article class="pub-item">
-                        <div class="pub-title">基于大语言模型的工具调用方法及装置 <span class="pub-badge">第一发明人</span></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=ZL202510582863" target="_blank" rel="noopener">基于大语言模型的工具调用方法及装置</a> <span class="pub-badge">第一发明人</span></div>
                         <div class="pub-meta">ZL202510582863.2</div>
                     </article>
                     <article class="pub-item">
-                        <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202512008636.1">一种通用视觉模型训练方法及系统</a></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=ZL202512008636.1" target="_blank" rel="noopener" title="专利号: ZL202512008636.1">一种通用视觉模型训练方法及系统</a></div>
                         <div class="pub-meta">ZL202512008636.1(排名2)</div>
                     </article>
                      <article class="pub-item">
-                        <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202511666307">一种大模型键值缓存量化方法、系统、设备及存储介质</a></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=ZL202511666307" target="_blank" rel="noopener" title="专利号: ZL202511666307">一种大模型键值缓存量化方法、系统、设备及存储介质</a></div>
                         <div class="pub-meta">ZL202511666307.X(排名2)</div>
                     </article>
                     <article class="pub-item">
-                        <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202410853898">车载相机标定方法、装置、电子设备及机器可读存储介质</a></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=ZL202410853898" target="_blank" rel="noopener" title="专利号: ZL202410853898">车载相机标定方法、装置、电子设备及机器可读存储介质</a></div>
                         <div class="pub-meta">ZL202410853898.0 (排名2)</div>
                     </article>
                     <article class="pub-item">
-                        <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202410853898">基于三维数字孪生与AR的实时停车引导方法和系统</a></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=ZL202511843277.5" target="_blank" rel="noopener" title="专利号: ZL202511843277.5">基于三维数字孪生与AR的实时停车引导方法和系统</a></div>
                         <div class="pub-meta">ZL202511843277.5 (排名2)</div>
                     </article>
                     <article class="pub-item">
-                        <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202411277658">一种模型训练方法、对象识别方法、装置及电子设备</a></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=ZL202411277658" target="_blank" rel="noopener" title="专利号: ZL202411277658">一种模型训练方法、对象识别方法、装置及电子设备</a></div>
                         <div class="pub-meta">ZL202411277658.7 (排名2)</div>
                     </article>
                     <article class="pub-item hidden-item">
-                        <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202411184316">一种数据增强模型的训练方法、数据增强方法、及装置</a></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=ZL202411184316" target="_blank" rel="noopener" title="专利号: ZL202411184316">一种数据增强模型的训练方法、数据增强方法、及装置</a></div>
                         <div class="pub-meta">ZL202411184316.0 (排名2)</div>
                     </article>
                     <article class="pub-item hidden-item">
-                        <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202410848459">一种智能巡店方法、装置、存储介质和电子设备</a></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=ZL202410848459" target="_blank" rel="noopener" title="专利号: ZL202410848459">一种智能巡店方法、装置、存储介质和电子设备</a></div>
                         <div class="pub-meta">ZL202410848459.0 (排名3)</div>
                     </article>
                     <article class="pub-item hidden-item">
-                        <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202411276518">一种夜间可见光与热红外图像融合方法</a></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=ZL202411276518" target="_blank" rel="noopener" title="专利号: ZL202411276518">一种夜间可见光与热红外图像融合方法</a></div>
                         <div class="pub-meta">ZL202411276518.8 (排名3)</div>
                     </article>
                     <article class="pub-item hidden-item">
-                        <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202210815529.3">一种图像处理方法、装置及设备</a></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=ZL202210815529.3" target="_blank" rel="noopener" title="专利号: ZL202210815529.3">一种图像处理方法、装置及设备</a></div>
                         <div class="pub-meta">ZL202210815529.3 (排名2)</div>
                     </article>
                     <article class="pub-item hidden-item">
-                        <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202411900422">一种液体识别方法、装置、存储介质和电子设备</a></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=ZL202411900422" target="_blank" rel="noopener" title="专利号: ZL202411900422">一种液体识别方法、装置、存储介质和电子设备</a></div>
                         <div class="pub-meta">ZL202411900422.4 (排名2)</div>
                     </article>
                     <article class="pub-item hidden-item">
-                        <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202210709171">任务处理方法、装置、电子设备及存储介质</a></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=ZL202210709171" target="_blank" rel="noopener" title="专利号: ZL202210709171">任务处理方法、装置、电子设备及存储介质</a></div>
                         <div class="pub-meta">ZL202210709171.6 (排名3)</div>
                     </article>
                     <article class="pub-item hidden-item">
-                        <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202510582392">一种多模态数据样本的生成方法及电子设备</a></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=ZL202510582392" target="_blank" rel="noopener" title="专利号: ZL202510582392">一种多模态数据样本的生成方法及电子设备</a></div>
                         <div class="pub-meta">ZL202510582392.5 (排名2)</div>
                     </article>
                     <article class="pub-item hidden-item">
-                        <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202411275283">一种基于主体目标判别的遮挡行人再识别方法</a></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=ZL202411275283" target="_blank" rel="noopener" title="专利号: ZL202411275283">一种基于主体目标判别的遮挡行人再识别方法</a></div>
                         <div class="pub-meta">ZL202411275283.0 (排名3)</div>
                     </article>
                     <article class="pub-item hidden-item">
-                        <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202510578269">模型训练方法、法律问题分析方法及电子设备</a></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=ZL202510578269" target="_blank" rel="noopener" title="专利号: ZL202510578269">模型训练方法、法律问题分析方法及电子设备</a></div>
                         <div class="pub-meta">ZL202510578269.6 (排名2)</div>
                     </article>
                     <article class="pub-item hidden-item">
-                        <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202210751469">一种网络模型的训练方法、装置及设备</a></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=ZL202210751469" target="_blank" rel="noopener" title="专利号: ZL202210751469">一种网络模型的训练方法、装置及设备</a></div>
                         <div class="pub-meta">ZL202210751469.3 (排名2)</div>
                     </article>
                     <article class="pub-item hidden-item">
-                        <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202210753273">一种网络模型的训练方法、装置及设备</a></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=ZL202210753273" target="_blank" rel="noopener" title="专利号: ZL202210753273">一种网络模型的训练方法、装置及设备</a></div>
                         <div class="pub-meta">ZL202210753273.8 (排名2)</div>
                     </article>
                     <article class="pub-item hidden-item">
-                        <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202210615980">神经网络模型裁剪方法、装置、电子设备及存储介质</a></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=ZL202210615980" target="_blank" rel="noopener" title="专利号: ZL202210615980">神经网络模型裁剪方法、装置、电子设备及存储介质</a></div>
                         <div class="pub-meta">ZL202210615980.0 (排名3)</div>
                     </article>
                     <article class="pub-item hidden-item">
-                        <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: CN118747905">适应于复杂视角和行人状态的行人属性识别方法</a></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=CN118747905" target="_blank" rel="noopener" title="专利号: CN118747905">适应于复杂视角和行人状态的行人属性识别方法</a></div>
                         <div class="pub-meta">CN118747905A (排名6)</div>
                     </article>
                     <article class="pub-item hidden-item">
-                        <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: CN120633870">应用于边缘设备的推理加速方法、装置及电子设备</a></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=CN120633870" target="_blank" rel="noopener" title="专利号: CN120633870">应用于边缘设备的推理加速方法、装置及电子设备</a></div>
                         <div class="pub-meta">CN120633870A (排名5)</div>
                     </article>
                     <article class="pub-item hidden-item">
-                        <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202010857184">基于共识图表征推理的定位自然图像字幕生成方法和装置</a></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=ZL202010857184" target="_blank" rel="noopener" title="专利号: ZL202010857184">基于共识图表征推理的定位自然图像字幕生成方法和装置</a></div>
                         <div class="pub-meta">ZL202010857184.9 (排名8)</div>
                     </article>
                     <article class="pub-item hidden-item">
-                        <div class="pub-title"><a href="https://pss-system.cponline.cnipa.gov.cn/conventionalSearch" target="_blank" rel="noopener" title="专利号: ZL202011278817">一种基于查询的自底向上视频定位方法和系统</a></div>
+                        <div class="pub-title"><a href="https://patents.google.com/?q=ZL202011278817" target="_blank" rel="noopener" title="专利号: ZL202011278817">一种基于查询的自底向上视频定位方法和系统</a></div>
                         <div class="pub-meta">ZL202011278817.7 (排名7)</div>
                     </article>
                 </div>
@@ -1391,10 +1670,10 @@
                         <div class="pub-title"><a href="https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=BD3445AD326E15A4B0DE92774826B52A" target="_blank" rel="noopener">GB/T 46700-2025</a> 国标《人工智能 音视频及图像分析算法接口》 <span class="pub-badge">第三起草人</span></div>
                     </article>
                      <article class="pub-item">
-                     <div class="pub-title"><a href="https://std.samr.gov.cn/gb/search/gbDetailed?id=3BD7197C4E85A3E7E06397BE0A0A94C7" target="_blank" rel="noopener"> 国标《人工智能 大模型 第4部分：计算机视觉大模型》(征求意见中)</div>
+                     <div class="pub-title"><a href="https://std.samr.gov.cn/gb/search/gbDetailed?id=3BD7197C4E85A3E7E06397BE0A0A94C7" target="_blank" rel="noopener"> 国标《人工智能 大模型 第4部分：计算机视觉大模型》(征求意见中)</a></div>
                     </article>
                     <article class="pub-item hidden-item">
-                        <div class="pub-title"><a href="https://www.ndls.org.cn/standard/detail/6be3c9e5347a7cde415cbcc5a6973909" target="_blank" rel="noopener"GB/T 42382.2-2026</a> 国标《信息技术 神经网络表示与模型压缩 第2部分：大规模预训练模型》</div>
+                        <div class="pub-title"><a href="https://www.ndls.org.cn/standard/detail/6be3c9e5347a7cde415cbcc5a6973909" target="_blank" rel="noopener">GB/T 42382.2-2026</a> 国标《信息技术 神经网络表示与模型压缩 第2部分：大规模预训练模型》</div>
                     </article>                   
                     <article class="pub-item hidden-item">
                         <div class="pub-title"><a href="https://openstd.samr.gov.cn/bzgk/gb/newGbInfo?hcno=A53A9ED19FC16A692D1B200E5AB0F407" target="_blank" rel="noopener">GB/T 45225-2025</a> 国标《人工智能 深度学习算法评估》</div>
@@ -1602,6 +1881,7 @@
             <div class="footer-copyright">
                 <p>&copy; 2026 任文奇. All Rights Reserved.</p>
                 <p>Hikvision Research Institute</p>
+                <p id="last-updated" style="font-size:0.75rem; color:var(--text-light)">最后更新：2026-08-31</p>
             </div>
             <div class="footer-counter">
                 <a href="https://info.flagcounter.com/NQsg" target="_blank" rel="noopener"><img src="https://s01.flagcounter.com/count2/NQsg/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" loading="lazy" style="border:0"></a>
@@ -1611,6 +1891,60 @@
 
     <!-- 脚本 -->
     <script>
+        // ==================== 深色模式 ====================
+        function applyTheme(dark) {
+            document.body.classList.toggle('dark-theme', dark);
+            var btn = document.getElementById('themeToggle');
+            if (btn) {
+                btn.textContent = dark ? '☀️' : '🌙';
+                btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+            }
+        }
+        function toggleTheme() {
+            var dark = !document.body.classList.contains('dark-theme');
+            try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
+            applyTheme(dark);
+        }
+        (function initTheme() {
+            var saved = null;
+            try { saved = localStorage.getItem('theme'); } catch (e) {}
+            var dark = saved ? saved === 'dark'
+                             : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            document.addEventListener('DOMContentLoaded', function() { applyTheme(dark); });
+        })();
+
+        // ==================== 反爬邮箱：运行时拼接为可点击链接 ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            var u = 'renwenqi', d = 'hikvision' + '.' + 'com';
+            var a = document.getElementById('email-link');
+            if (a) { a.href = 'mail' + 'to:' + u + '@' + d; a.textContent = u + '@' + d; }
+        });
+
+        // ==================== BibTeX 一键复制 ====================
+        document.addEventListener('click', function(e) {
+            var btn = e.target.closest ? e.target.closest('.cite-btn') : null;
+            if (!btn) return;
+            var bib = btn.getAttribute('data-bib') || '';
+            var done = function() {
+                var old = btn.textContent;
+                btn.textContent = '✓ 已复制';
+                btn.classList.add('copied');
+                setTimeout(function() { btn.textContent = old; btn.classList.remove('copied'); }, 1800);
+            };
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(bib).then(done, function() { fallbackCopy(bib); done(); });
+            } else { fallbackCopy(bib); done(); }
+        });
+        function fallbackCopy(text) {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed'; ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            try { document.execCommand('copy'); } catch (e) {}
+            document.body.removeChild(ta);
+        }
+
         // 选项卡切换
         function switchTab(tabName) {
             // 切换面板
@@ -1703,6 +2037,19 @@
             if (hash && validTabs.includes(hash)) {
                 switchTab(hash);
             }
+        });
+
+        // 键盘无障碍：聚焦导航链接时支持 ←/→ 切换
+        document.addEventListener('keydown', function(e) {
+            if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+            var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+            var idx = links.indexOf(document.activeElement);
+            if (idx === -1) return;
+            e.preventDefault();
+            var next = links[(idx + (e.key === 'ArrowRight' ? 1 : links.length - 1)) % links.length];
+            next.focus();
+            var tab = next.getAttribute('data-tab');
+            if (tab) switchTab(tab);
         });
     </script>
 
