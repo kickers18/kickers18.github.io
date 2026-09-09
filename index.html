@@ -1857,6 +1857,20 @@
             if (a) { a.href = 'mail' + 'to:' + u + '@' + d; a.textContent = u + '@' + d; }
         });
 
+        // ==================== 成果列表默认只显示前 6 项 ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            var LIMIT = 6;
+            document.querySelectorAll('.pub-list').forEach(function(list) {
+                var items = list.querySelectorAll('.pub-item');
+                if (items.length <= LIMIT) return;
+                items.forEach(function(el, i) {
+                    el.classList.toggle('hidden-item', i >= LIMIT);
+                });
+                var btn = list.parentElement.querySelector('.expand-btn');
+                if (btn) btn.textContent = '展开全部 ' + items.length + ' 项 ▼';
+            });
+        });
+
         // ==================== BibTeX 一键复制 ====================
         document.addEventListener('click', function(e) {
             var btn = e.target.closest ? e.target.closest('.cite-btn') : null;
