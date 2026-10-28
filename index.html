@@ -1064,6 +1064,13 @@
                     <!-- <div class="card-meta">经费：100万元</div> -->
                 </article>
                 <article class="card">
+                    <span class="project-status status-completed">结项</span>
+                    <h3>面向物联感知的自主可控算力平台构建及多模态大模型研发应用</h3>
+                    <p>2024年省级特色产业集群核心区协同区财政专项激励项目 (2024.1 - 2025.12)</p>
+                    <p><strong>角色：</strong>项目负责人</p>
+                    <div class="card-meta">智能物联产业集群 · 杭州市滨江区</div>
+                </article>
+                <article class="card">
                     <span class="project-status status-completed">结项(优秀)</span>
                     <h3>中国科协科技智库青年人才计划</h3>
                     <p>2024.8 - 2025.1</p>
@@ -1905,6 +1912,18 @@
                 var btn = list.parentElement.querySelector('.expand-btn');
                 if (btn) btn.textContent = '展开全部 ' + items.length + ' 项 ▼';
             });
+            // 科研项目同样默认只显示前 6 项
+            var pg = document.getElementById('project-grid');
+            if (pg) {
+                var cards = pg.querySelectorAll(':scope > article.card');
+                if (cards.length > LIMIT) {
+                    cards.forEach(function(el, i) {
+                        if (i >= LIMIT) el.classList.add('hidden-project');
+                    });
+                    var pbtn = document.getElementById('project-expand-btn');
+                    if (pbtn) pbtn.textContent = '展开全部 ' + cards.length + ' 项 ▼';
+                }
+            }
         });
 
         // ==================== BibTeX 一键复制 ====================
