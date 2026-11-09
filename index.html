@@ -847,6 +847,13 @@
         .hidden-project.show {
             display: block;
         }
+        /* 荣誉奖励折叠样式 */
+        .award-item.hidden-award {
+            display: none;
+        }
+        .award-item.hidden-award.show {
+            display: flex;
+        }
         #project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -918,6 +925,7 @@
             .hero-subtitle, .hero-contact { color: #333 !important; }
             body { background: #fff !important; color: #000 !important; }
             .hidden-item, .hidden-project { display: block !important; }
+            .award-item.hidden-award { display: flex !important; }
             a { color: #000 !important; text-decoration: underline; }
         }
     </style>
@@ -1168,7 +1176,7 @@
     <div class="tab-panel" id="panel-awards">
         <section class="container">
             <h2 class="section-title">荣誉奖励</h2>
-            <div class="grid-3">
+            <div class="grid-3" id="award-grid">
                 <article class="award-item">
                     <div class="award-icon">🥇</div>
                     <div>
@@ -1243,6 +1251,7 @@
                     </div>
                 </article>
             </div>
+            <button class="expand-btn" onclick="toggleAwards()" id="award-expand-btn">展开更多</button>
         </section>
     </div>
 
@@ -1939,6 +1948,21 @@
                     if (pbtn) pbtn.textContent = '展开全部 ' + cards.length + ' 项 ▼';
                 }
             }
+            // 荣誉奖励同样默认只显示前 6 项
+            var ag = document.getElementById('award-grid');
+            if (ag) {
+                var awards = ag.querySelectorAll(':scope > article.award-item');
+                if (awards.length > LIMIT) {
+                    awards.forEach(function(el, i) {
+                        if (i >= LIMIT) el.classList.add('hidden-award');
+                    });
+                    var abtn = document.getElementById('award-expand-btn');
+                    if (abtn) abtn.textContent = '展开全部 ' + awards.length + ' 项 ▼';
+                } else {
+                    var abtn2 = document.getElementById('award-expand-btn');
+                    if (abtn2) abtn2.style.display = 'none';
+                }
+            }
         });
 
         // ==================== BibTeX 一键复制 ====================
@@ -2049,6 +2073,25 @@
             });
             
             btn.textContent = isExpanded ? '展开更多 ▼' : '折叠 ▲';
+        }
+
+        // 荣誉奖励折叠功能
+        function toggleAwards() {
+            const hiddenAwards = document.querySelectorAll('.hidden-award');
+            const btn = document.getElementById('award-expand-btn');
+            if (!btn) return;
+            const isExpanded = btn.textContent.includes('折叠');
+
+            hiddenAwards.forEach(award => {
+                if (isExpanded) {
+                    award.classList.remove('show');
+                } else {
+                    award.classList.add('show');
+                }
+            });
+
+            const total = document.querySelectorAll('#award-grid > article.award-item').length;
+            btn.textContent = isExpanded ? ('展开全部 ' + total + ' 项 ▼') : '折叠 ▲';
         }
 
         // 页面加载时根据 URL hash 切换选项卡
